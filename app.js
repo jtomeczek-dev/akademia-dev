@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.3.0';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -48,7 +48,7 @@ const BLOCKS = [
     title: 'Zanim zaczniemy',
     time: 'przed zajęciami (dzień wcześniej), ok. 30–45 min',
     mode: 'przygotowanie',
-    desc: 'Warsztat jest intensywny i praktyczny — pracujesz na komputerze od pierwszej godziny. Piętnaście minut przygotowania oszczędza godzinę frustracji. Przygotuj sprzęt, konta i pomysł na temat swojego drugiego mózgu (albo idź gotową ścieżką UX).',
+    desc: 'Warsztat jest intensywny i praktyczny — pracujesz na komputerze od pierwszej godziny, więc piętnaście minut przygotowania oszczędza Ci godzinę frustracji. Przygotuj sprzęt, konta (Google do NotebookLM, płatny Claude) i pomysł na temat swojego drugiego mózgu — jeśli go nie masz, poprowadzę Cię z góry zdefiniowaną ścieżką tematyczną UX. Ode mnie dostajesz tę checklistę, link do wspólnego notatnika NotebookLM i materiały, które przekażę już na kursie.',
     checkpoints: [
       'Wchodzę do NotebookLM (konto Google) i widzę interfejs narzędzia.',
       'Wchodzę do aplikacji Claude, subskrypcja jest aktywna.',
@@ -63,7 +63,7 @@ const BLOCKS = [
     title: 'Cel dnia i wybór tematu',
     time: '8:00–8:20',
     mode: 'wspólnie',
-    desc: 'Warsztat uczy zarządzania własną wiedzą ze wsparciem AI, nie „obsługi AI”. Cel nadrzędny dnia to opublikowana landing page zbudowana z Twojego drugiego mózgu. Rytm dnia: poznaj → zbuduj → opublikuj, a trzy nawyki („kończę pracę”, raport i ingest, myślenie oddzielone od wykonania) wracają przez cały dzień.',
+    desc: 'Nie uczę Cię „obsługi AI” — takich kursów są tysiące za darmo. Uczę czegoś cenniejszego: jak zarządzać własną wiedzą ze wsparciem AI, a cel nadrzędny dnia to opublikowana landing page zbudowana z Twojego drugiego mózgu — namacalny dowód, że ta metoda działa. Poznasz rytm dnia (poznaj → zbuduj → opublikuj) oraz trzy nawyki („kończę pracę”, raport i ingest, myślenie oddzielone od wykonania), które będą wracać przez cały dzień i zostaną z Tobą na stałe.',
     checkpoints: [
       'Rozumiesz, że tematem kursu jest zarządzanie wiedzą, a nie „obsługa AI”.',
       'Wiesz, jaki jest cel nadrzędny dnia (opublikowana strona).',
@@ -77,7 +77,7 @@ const BLOCKS = [
     title: 'Projekt jako mentor',
     time: '8:20–9:05',
     mode: 'ćwiczenie praktyczne',
-    desc: 'Zwykły czat zapomina wszystko po zamknięciu. Projekt w Claude ma trwały kontekst: instrukcje, wiedzę projektu (skills.md, persony.md) i pamięć. W tym kroku konfigurujesz Projekt jako stałego mentora, testujesz go pierwszą decyzją o landing page i domykasz sesję.',
+    desc: 'Zwykły czat zapomina wszystko po zamknięciu okna, dlatego zamieniam Twój Projekt w Claude w stałego mentora z trwałym kontekstem: instrukcjami, wiedzą projektu (`skills.md`, `persony.md`) i pamięcią. Skonfigurujesz go razem ze mną, przetestujesz na pierwszej prawdziwej decyzji o swojej landing page i domkniesz sesję rytuałem „kończę pracę" — najważniejszym nawykiem całego kursu. Na koniec pokażę Ci też, dlaczego to podejście, mimo że działa, jest już kosztowne i zawodne, i dokąd stąd zmierzamy.',
     checkpoints: [
       'Projekt Claude istnieje i ma wklejone instrukcje w ustawieniach.',
       'W wiedzy projektu są dwa dokumenty: `skills.md` i `persony.md`.',
@@ -169,7 +169,7 @@ Ustalenia zapisz w pamięci projektu.`
     title: 'Poznaj NotebookLM',
     time: 'Faza 1 (poranek), wg programu',
     mode: 'pokaz (na notatniku prowadzącego) + ćwiczenie praktyczne',
-    desc: 'NotebookLM to darmowe narzędzie Google — inteligentny notatnik, który staje się ekspertem wyłącznie od Twoich źródeł i cytuje je w odpowiedziach. Trzy elementy interfejsu: źródła, czat z cytowaniami, Studio i notatki. Zakładasz własny notatnik i dodajesz do niego kilka źródeł.',
+    desc: 'NotebookLM to darmowe narzędzie Google, które zamienia się w Twoich oczach w inteligentny notatnik: wgrywasz własne źródła, a on odpowiada wyłącznie na ich podstawie i cytuje je, więc nie zmyśla i nie dryfuje. Pokażę Ci trzy elementy interfejsu na swoim notatniku o UX, a potem założysz własny notatnik i dodasz do niego kilka źródeł. To rozwiązanie problemu z poprzedniego rozdziału: kosztu i niespójności zwykłego czatu.',
     checkpoints: [
       'Rozpoznajesz trzy części interfejsu: źródła, czat, Studio i notatki.',
       'Potrafisz wskazać w odpowiedzi czatu cytowania do źródeł.',
@@ -182,7 +182,7 @@ Ustalenia zapisz w pamięci projektu.`
     title: 'Ustawienia Claude',
     time: '9:25–9:45',
     mode: 'ćwiczenie praktyczne',
-    desc: 'Przechodzisz przez ustawienia konta Claude: personalizację, prywatność, kluczowe zdolności (Artifacts, generowanie pamięci, wykonywanie kodu w chmurze), limity, skille od Anthropic oraz parametry Claude Code (auto-zatwierdzanie zamiast trybu pomijania uprawnień, Preview tools). Ustawiasz raz, korzystasz cały dzień.',
+    desc: 'Przechodzimy razem przez ustawienia Twojego konta Claude: personalizację, prywatność, kluczowe zdolności (Artifacts, pamięć, wykonywanie kodu w chmurze), limity, skille od Anthropic i parametry Claude Code. Ustawiasz raz, a korzystasz z tego przez cały dzień — zwłaszcza z auto-zatwierdzania zamiast ryzykownego trybu pomijania uprawnień oraz z Preview tools, których użyjesz przy budowie strony.',
     checkpoints: [
       'Masz uzupełnione Instructions for Claude.',
       'Artifacts są włączone.',
@@ -198,7 +198,7 @@ Ustalenia zapisz w pamięci projektu.`
     title: 'Instalacja Obsidian i pierwszy pusty sejf',
     time: '10:00–10:15',
     mode: 'ćwiczenie praktyczne',
-    desc: 'Drugi mózg to zewnętrzny, zaufany magazyn wiedzy — zwykły folder ze zwykłymi plikami Markdown na Twoim komputerze, bez konta i bez wymuszonej chmury. Pracujesz wg modelu „LLM Wiki” Andreja Karpathy\'ego: AI stopniowo buduje i utrzymuje trwałą, połączoną wiki z Twoich materiałów. Instalujesz Obsidian i zakładasz pusty sejf w lokalnym folderze poza chmurą.',
+    desc: 'Zanim zainstalujesz Obsidian, wyjaśnię Ci, skąd bierze się pomysł drugiego mózgu i dlaczego projektuję Twój sejf według modelu Andreja Karpathy\'ego, czyli „LLM Wiki" — wzorca, w którym AI stopniowo buduje i utrzymuje trwałą, gęsto połączoną wiki z Twoich materiałów. Sejf Obsidiana to zwykły folder ze zwykłymi plikami Markdown na Twoim komputerze, bez konta i bez wymuszonej chmury — instalujesz go i zakładasz pusty sejf w lokalnym folderze, poza automatyczną synchronizacją w chmurze.',
     checkpoints: [
       'Obsidian jest zainstalowany i uruchamia się na Twoim systemie.',
       'Masz utworzony pusty sejf o znanej nazwie.',
@@ -212,7 +212,7 @@ Ustalenia zapisz w pamięci projektu.`
     title: 'Wprowadzenie do Claude Code',
     time: '10:15–10:35',
     mode: 'powtarzaj za mną (robimy razem)',
-    desc: 'Claude Code to agent uruchomiony na Twoim komputerze, z dostępem do folderu sejfu — czyta i tworzy pliki, łączy je odnośnikami, uruchamia narzędzia. Chat doradza, Code wykonuje. Otwierasz Claude Code na folderze swojego sejfu i włączasz tryb auto-zatwierdzania zmian na czas warsztatu (to nie to samo co ryzykowny „tryb pomijania uprawnień”).',
+    desc: 'Poznajesz Claude Code — to ten sam Claude, ale działający bezpośrednio na plikach Twojego sejfu: czyta je, tworzy, łączy odnośnikami i uruchamia narzędzia. W skrócie: Chat doradza, Code wykonuje. Otwieramy go razem na folderze Twojego sejfu i na czas warsztatu włączamy tryb auto-zatwierdzania zmian (to nie to samo co ryzykowny „tryb pomijania uprawnień", który zostaje wyłączony).',
     checkpoints: [
       'Claude Code jest otwarty na folderze Twojego sejfu.',
       'Rozumiesz różnicę: Claude Chat rozmawia, Claude Code działa na plikach sejfu.',
@@ -227,7 +227,7 @@ Ustalenia zapisz w pamięci projektu.`
     title: 'Konfiguracja sejfu wg Karpathy\'ego',
     time: '10:35–11:05',
     mode: 'powtarzaj za mną (robimy razem)',
-    desc: 'Dajesz Claude Code schemat (`CLAUDE.md`) i skille Obsidiana (kepano/obsidian-skills: Markdown, Bases, Canvas, obsługa sejfu, oczyszczanie stron WWW). Uzupełniasz szkielet `CLAUDE.md` o swoją dziedzinę, dostrajasz go razem z Claude Code i tworzysz strukturę folderów `Źródła/` i `Wiki/`.',
+    desc: 'Dajesz Claude Code dwie rzeczy, których mu jeszcze brakuje: schemat `CLAUDE.md`, czyli konstytucję Twojego sejfu wg wzorca Karpathy\'ego, oraz skille Obsidiana (kepano/obsidian-skills: Markdown, Bases, Canvas, obsługa sejfu, oczyszczanie stron WWW). Bierzesz gotowy szkielet, przyjmujesz go na własność, uzupełniasz o swoją dziedzinę i dostrajasz razem ze mną, po czym tworzycie strukturę `Źródła/` i `Wiki/`.',
     checkpoints: [
       'W korzeniu sejfu jest plik `CLAUDE.md` z uzupełnionymi polami `<…>`.',
       'Istnieją foldery `Źródła/` oraz `Wiki/` (z podfolderami koncepcje / encje / analizy).',
@@ -324,7 +324,7 @@ Po instalacji wypisz, jakie skille są teraz dostępne.`
     title: 'Migracja z Claude Chat i pierwszy ingest',
     time: '11:05–11:35',
     mode: 'ćwiczenie praktyczne (robimy razem)',
-    desc: 'Wrzucasz pierwszy materiał do sejfu i uruchamiasz pierwszy ingest: migrujesz instrukcje, pamięć projektu, `skills.md`, `persony.md` i artefakt decyzji o landing page z bloku 02 do folderu `Źródła/`, a Claude Code zamienia je w połączoną wiki i aktualizuje `Indeks.md` oraz `Dziennik.md`. Na końcu oglądasz graf wiedzy.',
+    desc: 'Twój sejf ma już ciało, ręce, schemat i umiejętności, ale wciąż jest pusty — teraz wrzucasz do niego pierwszy materiał i uruchamiasz pierwszy ingest. Migrujesz instrukcje, pamięć projektu, `skills.md`, `persony.md` i artefakt decyzji o landing page z bloku 02 do folderu `Źródła/`, a Claude Code zamienia je w połączoną wiki i aktualizuje `Indeks.md` oraz `Dziennik.md`. Na końcu zobaczysz swój pierwszy graf wiedzy — to moment, w którym metoda przestaje być teorią.',
     checkpoints: [
       'W folderze `Źródła/` są pliki `.md` z Twojej porannej pracy.',
       'Po ingescie w `Wiki/` istnieją pierwsze strony, połączone odnośnikami.',
@@ -362,7 +362,7 @@ Podaj sam gotowy prompt, gotowy do skopiowania.`
     title: 'Zbieranie stron z Web Clipperem',
     time: '11:25–11:45',
     mode: 'ćwiczenie praktyczne (robimy razem)',
-    desc: 'Uczysz się drugiego, codziennego źródła wiedzy: stron internetowych. Wtyczka Obsidian Web Clipper zapisuje stronę WWW jako czystą notatkę Markdown wprost do sejfu. Klipujesz strony kursu, a potem ingestujesz je tak samo jak w bloku 08.',
+    desc: 'Uczysz się drugiego, codziennego źródła wiedzy: stron internetowych. Wtyczka Obsidian Web Clipper zapisuje stronę WWW jako czystą notatkę Markdown wprost do Twojego sejfu — dziś sklipujesz strony tego kursu, a potem zaingestujesz je dokładnie tak samo jak w bloku 08. Zobaczysz, jak graf wiedzy wyraźnie się rozrasta.',
     checkpoints: [
       'Web Clipper wskazuje Twój sejf i zapisuje klipy (domyślnie do folderu `Clippings`).',
       'W sejfie są sklipowane strony kursu jako pliki `.md`.',
@@ -384,7 +384,7 @@ Pokaż, co powstało lub się zmieniło.`
     title: 'Podłącz NotebookLM przez MCP',
     time: '11:45–12:00',
     mode: 'powtarzaj za mną (robimy razem)',
-    desc: 'MCP (Model Context Protocol) to otwarty standard, dzięki któremu Claude łączy się z zewnętrznymi narzędziami, np. Twoimi notatnikami NotebookLM. Całą pracę instalacyjną wykonuje Claude Code; Twój jedyny ręczny krok to logowanie do Google. Po restarcie aplikacji testujesz most i domykasz przedpołudniową sesję rytuałem SESSION-CLOSE.',
+    desc: 'MCP (Model Context Protocol) to otwarty standard, dzięki któremu Claude łączy się z zewnętrznymi narzędziami — w tym wypadku z Twoim notatnikiem NotebookLM. Całą pracę instalacyjną zlecasz Claude Code; Twój jedyny możliwy ręczny krok to logowanie do Google. Po restarcie aplikacji testujesz most i po raz pierwszy domykasz sesję pełnym rytuałem SESSION-CLOSE, rozwinięciem nawyku „kończę pracę".',
     checkpoints: [
       '`nlm login` zakończył się sukcesem (jesteś na właściwym koncie Google).',
       'Wpis `notebooklm-mcp` jest w konfiguracji aplikacji Claude Desktop (z pełną ścieżką).',
@@ -412,7 +412,7 @@ Na końcu wypisz krótko, co zapisałeś i gdzie.`
     title: 'Brandbook (tożsamość Twojej strony)',
     time: '12:30–12:45',
     mode: 'powtarzaj za mną (każdy robi u siebie)',
-    desc: 'Brandbook to krótki zestaw wiążących decyzji o tym, jak marka wygląda i mówi: nazwa, ton głosu, CTA, kolory, typografia, „czego unikać”. Generujesz go z własnej wiedzy w sejfie i notatnika NotebookLM (przez MCP), a wynik wraca do drugiego mózgu przez ingest.',
+    desc: 'Po lunchu zaczyna się produkcja, a zanim powstanie choćby jeden ekran, Twoja strona potrzebuje tożsamości — inaczej wyjdzie z niej generyczny, „ai-owy" szablon, jakich pełno w sieci. Generujesz brandbook z własnej wiedzy w sejfie i notatnika NotebookLM (przez MCP), a wynik wraca do drugiego mózgu przez ingest, żeby przy budowie strony agenci traktowali go jako wiążące wytyczne, a nie luźną sugestię.',
     checkpoints: [
       'Rozumiesz, że brandbook to zestaw wiążących decyzji, a nie ozdoba.',
       'Masz brandbook z sześcioma elementami (nazwa, ton, CTA, kolory, typografia, „czego unikać”), wygenerowany z własnego sejfu albo wzięty z planu awaryjnego.',
@@ -445,7 +445,7 @@ i Dziennik.md. Na końcu pokaż, co powstało.`
     title: 'Wireframe: makieta wyglądu strony',
     time: '12:45–13:20',
     mode: 'powtarzaj za mną (prowadzący pokazuje krok, Ty powtarzasz u siebie)',
-    desc: 'Wireframe w tym kursie to makieta wysokiej wierności — wygląd jak najbliższy finalnej stronie, z kolorami i typografią z brandbooka. To wizualny kontrakt, który budowa strony (blok 14) ma odwzorować. Claude Code pisze brief, Claude Design rysuje makietę, sejf przyjmuje ją jako zatwierdzony wzorzec.',
+    desc: 'Wireframe w tym kursie to nie surowy szkic, tylko makieta wysokiej wierności — wygląd jak najbliższy finalnej stronie, z kolorami i typografią z Twojego brandbooka, bo to na jej podstawie zatwierdzasz wygląd. Nie piszesz tego briefu sam: Twój drugi mózg zna już propozycję wartości, ścieżkę użytkownika i brandbook, więc to Claude Code przygotuje pełny brief dla Claude Design, a Ty dopracowujesz makietę i odsyłasz ją do sejfu jako zatwierdzony, wiążący wzorzec wyglądu.',
     checkpoints: [
       'Claude Code przygotował brief z kontekstem (brandbook + ścieżka), a nie ogólnik.',
       'W Claude Design powstała makieta wysokiej wierności (kolory i typografia z brandbooka, realistyczna treść), którą zatwierdzasz jako wygląd strony.',
@@ -538,7 +538,7 @@ co powstało.`
     title: 'Katalog DEV i agenci (webmaster, UX)',
     time: '13:20–14:30 (praca 13:20–14:15, potem przerwa 2)',
     mode: 'powtarzaj za mną i ćwiczenie',
-    desc: 'Zakładasz osobny katalog DEV na kod strony, z dala od sejfu. W sejfie opisujesz dwóch agentów — webmastera (buduje stronę) i recenzenta UX (sprawdza ją przed publikacją) — a potem budujesz ich w katalogu DEV, reużywając gotowe skille i wtyczki tam, gdzie to możliwe.',
+    desc: 'Zakładasz osobny katalog DEV na kod strony, z dala od sejfu — bo sejf to magazyn wiedzy, nie repozytorium kodu. W sejfie opisujesz dwóch agentów: webmastera, który buduje stronę, i recenzenta UX, który sprawdza ją przed publikacją, a dopiero potem budujesz ich w katalogu DEV, reużywając gotowe skille i wtyczki z oficjalnych katalogów tam, gdzie to możliwe.',
     checkpoints: [
       'Istnieje osobny katalog DEV na stronę (poza sejfem), zainicjowany w Claude Code.',
       'W sejfie jest opis dwóch agentów (webmaster, recenzent UX) z rolami, wejściami i zasadami.',
@@ -600,7 +600,7 @@ Podaj gotowy prompt do skopiowania.`
     title: 'Budowa strony',
     time: '14:30–15:20',
     mode: 'ćwiczenie → powtarzaj za mną (robimy razem)',
-    desc: 'Wszystko, co zbudowałeś, zbiega się w jednej budowie: brandbook, zatwierdzona makieta, persony i ścieżka użytkownika oraz dwaj agenci. Claude Code pisze z Twojego drugiego mózgu jeden prompt finalny, a agenci budują z niego prawdziwą stronę w katalogu DEV, zaciągając treść merytoryczną z NotebookLM przez MCP. Wynik wraca do sejfu przez ingest.',
+    desc: 'To moment, do którego zmierzał cały dzień: brandbook, zatwierdzona makieta, persony i ścieżka użytkownika oraz dwaj agenci zbiegają się w jednej budowie. Claude Code pisze z Twojego drugiego mózgu jeden kompletny prompt finalny, a Twoi agenci budują z niego prawdziwą stronę w katalogu DEV, zaciągając treść merytoryczną z NotebookLM przez MCP, po czym wynik wraca do sejfu przez ingest. Pierwszy raz zobaczysz, jak Twoja wiedza staje się działającym produktem.',
     checkpoints: [
       'Claude Code napisał prompt finalny (samowystarczalny brief) i zaingestował go do wiki.',
       'Webmaster ma dostęp do makiety — odczytuje ją z sejfu przez ścieżkę w prompcie finalnym (albo masz jej kopię w DEV).',
@@ -642,7 +642,7 @@ brandbookiem i zatwierdzoną makietą. Zaktualizuj Indeks.md i Dziennik.md.`
     title: 'Publikacja: strona na żywo (GitHub Pages)',
     time: '15:45–15:55',
     mode: 'pokaz (prowadzący pokazuje, Ty obserwujesz i rozumiesz, żeby móc powtórzyć samodzielnie)',
-    desc: 'Publikacja zamienia stronę w namacalny dowód: adres w internecie, który można otworzyć na dowolnym urządzeniu. Łańcuch: pliki z DEV → GitHub (magazyn) → GitHub Pages (serwer) → adres github.io. Alternatywa: przeciągnięcie folderu strony na app.netlify.com/drop.',
+    desc: 'Publikacja zamienia Twoją stronę w namacalny dowód: adres w internecie, który możesz otworzyć na dowolnym urządzeniu i wysłać komukolwiek. Pokazuję Ci łańcuch publikacji przez GitHub Pages: pliki z DEV → GitHub (magazyn) → GitHub Pages (serwer) → adres `github.io`, bez stawiania własnego serwera. Alternatywą, jeszcze prostszą, jest przeciągnięcie folderu strony na app.netlify.com/drop.',
     checkpoints: [
       'Rozumiesz łańcuch publikacji: GitHub (magazyn kodu i, po włączeniu Pages, serwer) → adres `github.io` (żywa strona).',
       'Strona została pokazana pod prawdziwym adresem, na innym urządzeniu niż to, na którym powstała.',
@@ -655,7 +655,7 @@ brandbookiem i zatwierdzoną makietą. Zaktualizuj Indeks.md i Dziennik.md.`
     title: 'Domknięcie i co dalej',
     time: '15:55–16:00',
     mode: 'wspólnie (rozmowa i Q&A)',
-    desc: 'Opublikowana strona jest dowodem, nie nagrodą — prawdziwą nagrodą jest metoda i drugi mózg, który dziś powstał. Trzy nawyki zabierasz do domu: „kończę pracę”, raport i ingest, myślenie oddzielone od wykonania. Drugi mózg żyje dalej dzięki regularnemu ingestowi i domykaniu sesji.',
+    desc: 'Masz opublikowaną stronę, ale to dowód, nie nagroda — prawdziwą nagrodą jest metoda i drugi mózg, który dziś zbudowałeś i zabierasz ze sobą. Zabierasz trzy nawyki: „kończę pracę", raport i ingest, myślenie oddzielone od wykonania — to one, a nie konkretne narzędzia, są sednem tej metody. Żeby drugi mózg żył dalej, karm go regularnym ingestem i domykaniem sesji.',
     checkpoints: [
       'Rozumiesz, że dowodem jest strona, a nagrodą metoda i drugi mózg.',
       'Potrafisz nazwać trzy nawyki do domu: „kończę pracę”, raport i ingest, myślenie oddzielone od wykonania.',

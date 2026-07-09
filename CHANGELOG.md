@@ -5,6 +5,31 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.3.0] - 2026-07-09
+
+### Changed
+- Opisy (`desc`) wszystkich 17 bloków w `app.js` przepisane na bazie PEŁNYCH
+  rozdziałów podręcznika kursu (`podrecznik/00-*.md` … `16-*.md`), a nie
+  skróconej treści wydestylowanej wcześniej. Nowe opisy wierniej oddają
+  moje sformułowania i pierwszoosobowy ton prowadzącego („poprowadzę Cię",
+  „dostajesz ode mnie", „pokażę Ci"). Pola `checkpoints` i `prompts` — już
+  raz zweryfikowane co do wierności źródłu — pozostają bez zmian, co do znaku.
+- `README.md` zaktualizowany pod aktualny stan projektu: gotowa, opublikowana
+  strona pod adresem https://jtomeczek-dev.github.io/akademia-dev/ (GitHub
+  Pages jako jedyny, świadomie wybrany cel wdrożenia; VPS odrzucony).
+  Usunięte nieaktualne odniesienia do „kroku 0" i planowanej budowy strony;
+  dodana wzmianka o podagentach Claude Code (webmaster, recenzent
+  bezpieczeństwa, recenzent UX/dostępności, recenzent treści) jako narzędziach
+  AI wspierających jednego autora, nie jako zespole ludzi.
+- Spójność pierwszoosobowego głosu autora (JT CONSULTING, Juliusz Tomeczek)
+  w całym projekcie — poprawione pojedyncze sformułowania sugerujące zespół
+  ludzki (np. „poza zasięgiem naszego CSS" → „poza zasięgiem mojego CSS").
+
+### Removed
+- `Dockerfile` i `.dockerignore` — VPS jako cel wdrożenia został odrzucony na
+  rzecz wyłącznie GitHub Pages, więc uruchamianie strony jako kontenera
+  Docker wypadło z zakresu projektu.
+
 ## [1.2.0] - 2026-07-09
 
 ### Added
@@ -36,7 +61,7 @@ a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
   nas" na „Zarejestruj się i zostaw opinię", zgodnie z faktyczną treścią
   formularza (rejestracja do przyszłej wersji komercyjnej + opinia). Kolor
   przycisku i font formularza HubSpot pozostają bez zmian (renderują się
-  w cross-origin iframe hsforms.net, poza zasięgiem naszego CSS).
+  w cross-origin iframe hsforms.net, poza zasięgiem mojego CSS).
 - Obszar dotykowy checkboxa listy bloków powiększony z 18×18px do 24×24px
   (minimalny zalecany rozmiar celu dotykowego).
 

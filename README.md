@@ -1,10 +1,13 @@
 # akademia-dev
 
-Statyczna, jednostronicowa strona narzędziowa dla uczestników prawdziwego,
-jednodniowego warsztatu **„drugi mózg z AI"** (JT CONSULTING, marka AI for
-Everyone), warsztat odbywa się **10.07.2026**.
+Statyczna, jednostronicowa strona narzędziowa dla uczestników mojego
+prawdziwego, jednodniowego warsztatu **„drugi mózg z AI"** (JT CONSULTING,
+marka AI for Everyone). Warsztat odbywa się **10.07.2026**. Jestem jego
+jedynym autorem i prowadzącym.
 
-Docelowy adres: `akademia.aiforeveryone.com.pl`.
+**Strona działa pod adresem:**
+[https://jtomeczek-dev.github.io/akademia-dev/](https://jtomeczek-dev.github.io/akademia-dev/)
+(GitHub Pages).
 
 ## Cel strony
 
@@ -15,15 +18,30 @@ w trakcie kursu. Dwie funkcje, bez logowania:
 2. **Biblioteka gotowych promptów** do skopiowania.
 
 Jedno główne wezwanie do działania w nagłówku — przycisk „Skontaktuj się" —
-prowadzi do kotwicy `#kontakt` na tej samej stronie, gdzie docelowo zostanie
-osadzony prawdziwy formularz HubSpot (kod embed dojdzie w kroku budowy;
-na razie w strukturze jest tylko zarezerwowane na niego miejsce, nic nie jest
-jeszcze osadzone).
+prowadzi do kotwicy `#kontakt` na tej samej stronie, gdzie osadzony jest
+formularz HubSpot (rejestracja do przyszłej wersji komercyjnej + opinia
+o warsztacie).
+
+## Hosting: GitHub Pages, nie VPS
+
+Świadomie zrezygnowałem z wdrożenia na własnym serwerze (VPS). Strona jest
+w pełni statyczna, więc nie ma powodu utrzymywać kontenera ani serwera:
+GitHub Pages serwuje ją za darmo, bezpośrednio z tego repozytorium. Z tego
+powodu w projekcie nie ma już `Dockerfile` ani `.dockerignore` — zostały
+świadomie usunięte, gdy zapadła ta decyzja.
+
+## Jak powstał kod
+
+Kod tej strony napisałem przy wsparciu wyspecjalizowanych podagentów Claude
+Code — narzędzi AI, a nie zespołu ludzi: webmastera (budowa strony),
+recenzenta bezpieczeństwa, recenzenta UX/dostępności i recenzenta treści.
+Każdy z nich pełni rolę wąsko wyspecjalizowanego narzędzia kontroli jakości,
+uruchamianego przeze mnie w toku pracy nad projektem.
 
 ## Baza wiedzy (tylko do odczytu)
 
 Cała wiedza o tym projekcie — treść kursu, brandbook, decyzje projektowe,
-opis zespołu agentów — znajduje się w sejfie Obsidian pod ścieżką:
+opis podagentów — znajduje się w moim sejfie Obsidian pod ścieżką:
 
 ```
 /Users/juliusz/Obsidian/CyfrowySejf
@@ -31,18 +49,9 @@ opis zespołu agentów — znajduje się w sejfie Obsidian pod ścieżką:
 
 To źródło jest **wyłącznie do odczytu**: z tego katalogu tylko się czyta, żeby
 zrozumieć kontekst — nic się w nim nie zmienia, nie kasuje ani nie dopisuje.
-Kod tego projektu żyje wyłącznie w tym folderze DEV.
+Kod tego projektu żyje wyłącznie w tym folderze DEV. Ta zasada obowiązuje
+też przy każdej przyszłej zmianie strony.
 
-## Stan projektu i kolejne kroki
+## Historia zmian
 
-To jest **krok 0 — inicjacja**: sam README i pusty szkielet plików na kod,
-bez treści.
-
-Kolejne kroki (na wyraźne polecenie w osobnych promptach, nie teraz):
-
-1. **Złożenie zespołu 4 agentów** (webmaster, recenzent bezpieczeństwa,
-   recenzent UX/dostępności, recenzent treści) wraz z zasadą sourcingu
-   skilli.
-2. **Właściwa budowa strony** — treść, styl wg brandbooka, logika śledzenia
-   postępu i biblioteki promptów, osadzenie prawdziwego formularza HubSpot
-   w sekcji `#kontakt`.
+Zobacz [`CHANGELOG.md`](CHANGELOG.md).
