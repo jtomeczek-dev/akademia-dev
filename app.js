@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.8.1';
+const APP_VERSION = '1.8.2';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -506,7 +506,7 @@ Ustalenia zapisz w pamięci projektu.`
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Ten blok robimy wspólnie: pokazuję u siebie, a Ty powtarzasz na swoim sejfie.' },
       { type: 'p', text: '**1. Utwórz plik `CLAUDE.md` i wklej do niego szkielet.** Świeży sejf Obsidiana **nie ma** pliku `CLAUDE.md`, więc najpierw trzeba go **utworzyć** w korzeniu sejfu. Najprościej w Obsidianie: utwórz nową notatkę i nazwij ją dokładnie `CLAUDE` (wielkimi literami; Obsidian zapisze ją jako `CLAUDE.md`). Następnie otwórz gotowiec [„Szkielet CLAUDE.md"](#blok-07-prompt-1), skopiuj całą zawartość ramki do tego pliku i uzupełnij pola w nawiasach `<…>` (nazwa sejfu, Twoja dziedzina, język). Dopiero ten plik sprawia, że Claude Code wie, jak utrzymywać Twój sejf i zasilać go wiedzą.' },
-      { type: 'p', text: '**2. Poproś Claude Code o dostosowanie schematu.** W Claude Code (otwartym na sejfie z rozdziału 06) wklej prompt, podstawiając swoją dziedzinę w miejsce `<TWOJA-DZIEDZINA>`. Prompt pochodzi z gotowca [„Szkielet CLAUDE.md"](#blok-07-prompt-1) (sekcja „Jak dostosować szkielet do siebie").' },
+      { type: 'p', text: '**2. Poproś Claude Code o dostosowanie schematu.** W Claude Code (otwartym na sejfie z rozdziału 06) wklej prompt [„Dostosuj schemat CLAUDE.md do mojej dziedziny"](#blok-07-prompt-2), podstawiając swoją dziedzinę w miejsce `<TWOJA-DZIEDZINA>`.' },
       { type: 'p', text: 'Claude przeczyta `CLAUDE.md` i **zaproponuje** podfoldery encji i koncepcji oraz przykładowe strony pod Twoją dziedzinę. Omawiacie propozycję, a Ty ją zatwierdzasz. **Dopiero po akceptacji** poproś Claude Code, żeby utworzył strukturę (`Źródła/`, `Wiki/…`, `Indeks.md`, `Dziennik.md`). To właśnie moment „współtworzenia" wg Karpathy\'ego.' },
       { type: 'p', text: '[**3. Zainstaluj skille Obsidiana (kepano).**](#blok-07-prompt-3) Dokładasz Claude Code umiejętności pracy z Obsidianem z repozytorium [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills). Najprościej **poprosić o to Claude Code**, wklejając gotowy prompt.' },
       { type: 'p', text: 'Claude Code wykona instalację (poprosi o zgodę na komendę) i pokaże listę skilli. Alternatywnie, jeśli masz zainstalowane Node i npm, możesz uruchomić instalację samodzielnie: `npx skills add https://github.com/kepano/obsidian-skills`.' },

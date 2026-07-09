@@ -5,6 +5,14 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.8.2] - 2026-07-09
+
+### Fixed
+- Blok 07: zdanie o wklejeniu promptu dostosowującego schemat linkowało
+  błędnie do promptu 1 („Szkielet do skopiowania — CLAUDE.md") zamiast do
+  promptu 2 („Dostosuj schemat CLAUDE.md do mojej dziedziny"), którego
+  faktycznie dotyczyło. Link poprawiony na właściwą kotwicę.
+
 ## [1.8.1] - 2026-07-09
 
 ### Fixed
