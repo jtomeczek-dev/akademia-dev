@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akademia — drugi mózg z AI | JT CONSULTING</title>
+<meta name="description" content="Narzędzie robocze dla uczestników warsztatu „drugi mózg z AI" — śledzenie postępu przez program dnia i biblioteka gotowych promptów do skopiowania.">
+<link rel="icon" type="image/png" href="assets/jtc-favicon-d-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#glowna-tresc">Przejdź do głównej treści</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="#" aria-label="JT CONSULTING — strona główna">
+      <img src="assets/jt-consulting-logo-d.png" alt="JT CONSULTING" class="site-header__logo-jt">
+    </a>
+    <div class="site-header__afe">
+      <img src="assets/ai-for-everyone-logo-transparent.png" alt="AI for Everyone" class="site-header__logo-afe">
+      <span class="site-header__afe-text">Kurs zrealizowany w ramach projektu AI for Everyone</span>
+    </div>
+    <a class="btn btn--cta" href="#kontakt">Skontaktuj się</a>
+  </div>
+</header>
+
+<section class="progress-bar" aria-label="Postęp warsztatu">
+  <div class="progress-bar__inner">
+    <div class="progress-bar__label">
+      <span id="progress-text">Ukończono 0 z 17 bloków</span>
+      <span class="progress-bar__percent" id="progress-percent">0%</span>
+    </div>
+    <div class="progress-bar__track" role="progressbar" aria-valuemin="0" aria-valuemax="17" aria-valuenow="0" aria-label="Ukończone bloki programu dnia" id="progress-track">
+      <div class="progress-bar__fill" id="progress-fill"></div>
+    </div>
+  </div>
+</section>
+
+<main id="glowna-tresc">
+  <div class="layout">
+
+    <section class="block-list" aria-label="Program dnia — lista bloków">
+      <h1 class="layout__heading">Program dnia — 10.07.2026</h1>
+      <p class="layout__intro">Warsztat „drugi mózg z AI". Zaznaczaj ukończone bloki, a szczegóły i prompty każdego bloku otwieraj po prawej (na telefonie: pod listą).</p>
+      <ol class="block-list__items" id="block-list-items"></ol>
+    </section>
+
+    <section class="block-detail" aria-label="Szczegóły wybranego bloku" id="block-detail" tabindex="-1">
+      <p class="block-detail__placeholder">Wybierz blok z listy, żeby zobaczyć jego szczegóły, checkpointy i prompty do skopiowania.</p>
+    </section>
+
+  </div>
+</main>
+
+<section id="kontakt" class="contact-section">
+  <div class="contact-section__inner">
+    <h2>Masz pytanie? Napisz do nas</h2>
+    <p>Coś nie działa albo chcesz dopytać o kolejny krok warsztatu — zostaw wiadomość, odezwiemy się najszybciej jak się da.</p>
+    <div class="contact-section__form-wrap">
+      <script src="https://js-eu1.hsforms.net/forms/embed/26778388.js" defer></script>
+      <div class="hs-form-frame" data-region="eu1" data-form-id="350ef57b-1399-46f7-9c2f-f5daada2ac8d" data-portal-id="26778388"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <img src="assets/jt-consulting-logo-d-white.png" alt="JT CONSULTING" class="site-footer__logo">
+    <p class="site-footer__company">
+      JT CONSULTING — Juliusz Tomeczek · NIP 633-182-39-45 · REGON 278085759 · ul. Panewnicka 327/8, 40-773 Katowice ·
+      <a href="mailto:j.tomeczek@jt-consulting.pl">j.tomeczek@jt-consulting.pl</a> ·
+      <a href="https://jt-consulting.pl">jt-consulting.pl</a>
+    </p>
+    <p class="site-footer__note">Materiał wyłącznie dla uczestników warsztatu „drugi mózg z AI" — 10.07.2026.</p>
+    <p class="site-footer__version" id="app-version"></p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
