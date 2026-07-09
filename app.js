@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.9.0';
+const APP_VERSION = '1.10.0';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -727,7 +727,7 @@ Pokaż, co powstało lub się zmieniło.`
       { type: 'p', text: '**2. Zatwierdzaj; zaloguj się tylko w razie potrzeby.** Claude Code wykonuje **całą** pracę (na warsztacie w trybie auto-zatwierdzania z rozdziału 06). Jeśli potrzebne będzie logowanie do Google, dokończ je w przeglądarce na **właściwym koncie**. Komendę `nlm login` uruchamiasz w terminalu **sam tylko wtedy, gdy Claude Code o to poprosi** (gdy nie mógł jej wywołać, a logowania jeszcze nie ma).' },
       { type: 'p', text: '**3. Zrestartuj aplikację Claude Desktop.** Gdy Claude Code skończy, zrestartuj aplikację, żeby wczytała nowy serwer MCP.' },
       { type: 'p', text: '**4. Przetestuj.** Wpisz „Wylistuj moje notatniki NotebookLM". Jeśli zwraca Twoją listę, most działa.' },
-      { type: 'callout', kind: 'note', title: 'Wariant ręczny (fallback)', text: 'Gdyby coś się nie powiodło, tę samą instalację można przeprowadzić **ręcznie** (uv, `nlm login`, wpis w konfiguracji, restart). Pełne, zweryfikowane kroki są w instrukcji MCP. To także materiał dla prowadzącego.' },
+      { type: 'callout', kind: 'note', title: 'Wariant ręczny (fallback)', text: 'Gdyby coś się nie powiodło, tę samą instalację można przeprowadzić **ręcznie** (uv, `nlm login`, wpis w konfiguracji, restart). Pełne, zweryfikowane kroki są w [instrukcji MCP](#blok-10-prompt-3).' },
       { type: 'heading', text: '🔒 Domknięcie sesji ([SESSION-CLOSE](#blok-10-prompt-2))' },
       { type: 'p', text: 'NotebookLM działa, więc **domykasz przedpołudniową sesję**. Robisz to po raz pierwszy: pełny [**SESSION-CLOSE**](#blok-10-prompt-2) to rozwinięta wersja nawyku **„kończę pracę"** z rozdziału 02, teraz uruchomiona w Twoim Second Brain. Poproś o to Claude Code.' },
       { type: 'callout', kind: 'info', title: 'Dlaczego robisz to na koniec sesji', text: 'Praca w rozmowie jest **ulotna**: zamkniesz okno i kontekst znika. SESSION-CLOSE przenosi to, co ważne, z ulotnej rozmowy do **trwałej pamięci** Second Brain, żeby następnym razem zacząć od miejsca, w którym praca się urwała, a nie od zera. To ta sama zasada, co nawyk „kończę pracę" z rozdziału 02: **ustalenia zapisujesz, nie zostawiasz ich w historii czatu**. Kolejność jest celowa: najpierw **pamięć** (co się wydarzyło), potem **strategia** (dokąd zmierzam), na końcu **workflow** (jak pracuję), czyli od faktów, przez kierunek, po metodę.' },
@@ -778,6 +778,96 @@ po kolei:
 3. WORKFLOW-UPDATE (jeśli dotyczy): jeśli pojawił się powtarzalny sposób pracy,
    zapisz go jako procedurę na przyszłość.
 Na końcu wypisz krótko, co zapisałeś i gdzie.`
+      },
+      {
+        label: 'Materiał referencyjny: instrukcja ręczna MCP do NotebookLM (fallback)',
+        text: `MCP (Model Context Protocol) to „wtyczka", dzięki której aplikacja Claude może
+rozmawiać z Twoim NotebookLM: czytać notatniki, zadawać im pytania, pobierać
+syntezy. Bez MCP trzeba by ręcznie kopiować treść z NotebookLM do Claude, a
+z MCP Claude sięga tam sam.
+
+Uwaga: MCP działa z aplikacji Claude na komputer (Claude Desktop), NIE z
+przeglądarki.
+
+WYMAGANIA (z checklisty)
+- Aplikacja Claude Desktop zainstalowana i zalogowana.
+- Konto Google z dostępem do NotebookLM.
+- Terminal (macOS: Terminal; Windows: PowerShell).
+
+KROKI
+
+1. Zainstaluj uv (menedżer narzędzi Pythona)
+Serwer MCP instalujemy przez uv. Jeśli go nie masz:
+
+macOS i Linux (Terminal):
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+
+Windows (PowerShell):
+  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+Zamknij i otwórz terminal ponownie, żeby uv był widoczny.
+Alternatywa bez uv: pipx install notebooklm-mcp-cli (jeśli masz pipx).
+
+2. Zainstaluj serwer NotebookLM
+  uv tool install notebooklm-mcp-cli
+
+Instalacja dokłada dwie komendy do ~/.local/bin: nlm (logowanie) oraz
+notebooklm-mcp (serwer MCP).
+
+3. Zaloguj się do Google
+  nlm login
+
+Otworzy się przeglądarka; zaloguj się na to samo konto Google, na którym
+masz NotebookLM. Po udanym logowaniu token zapisuje się lokalnie (nie
+wpisujemy go do żadnego pliku konfiguracyjnego).
+
+4. Znajdź pełną ścieżkę do serwera
+  which notebooklm-mcp      # macOS / Linux
+  where notebooklm-mcp      # Windows
+
+Zapisz wynik, np. /Users/twoj-uzytkownik/.local/bin/notebooklm-mcp. Użyjemy
+pełnej ścieżki (to ważne, zob. Rozwiązywanie problemów).
+
+5. Dopisz serwer do konfiguracji Claude Desktop
+Najprościej otwórz konfigurację z aplikacji: Ustawienia → Developer
+(Deweloper) → Local MCP servers (Lokalne serwery MCP) → Edit Config
+(Edytuj konfigurację). Otworzy się ten sam plik, co ręcznie:
+- macOS: ~/Library/Application Support/Claude/claude_desktop_config.json
+- Windows: %APPDATA%\\Claude\\claude_desktop_config.json
+
+Dodaj wpis notebooklm-mcp w sekcji mcpServers (wstaw swoją ścieżkę z kroku 4):
+
+{
+  "mcpServers": {
+    "notebooklm-mcp": {
+      "command": "/Users/twoj-uzytkownik/.local/bin/notebooklm-mcp"
+    }
+  }
+}
+
+Jeśli masz już inne serwery w mcpServers, po prostu dołóż ten wpis (pamiętaj
+o przecinku między wpisami). Ten serwer nie wymaga sekcji env ani args; sama
+komenda wystarcza, ponieważ autoryzację załatwił nlm login.
+
+6. Zrestartuj Claude Desktop
+Zamknij aplikację całkowicie i uruchom ją ponownie. Po starcie w ustawieniach
+lub menu narzędzi powinien pojawić się notebooklm-mcp.
+
+7. Test
+W nowej rozmowie w aplikacji Claude napisz:
+„Wylistuj moje notatniki NotebookLM."
+Jeśli Claude zwróci listę Twoich notatników, wszystko działa.
+
+ROZWIĄZYWANIE PROBLEMÓW
+- Serwer się nie pojawia lub pojawia się „nie znaleziono komendy". Aplikacje
+  graficzne nie zawsze widzą PATH z terminala. Dlatego w konfiguracji użyj
+  pełnej, absolutnej ścieżki do notebooklm-mcp (krok 4), a nie samej nazwy.
+- Błędy autoryzacji lub status „stale". Token wygasł, więc uruchom ponownie
+  nlm login.
+- Złe konto. Jeśli widzisz cudze lub puste notatniki, jesteś na złym koncie
+  Google; uruchom nlm login i wybierz właściwe.
+- Aktualizacja serwera:
+  uv tool upgrade notebooklm-mcp-cli`
       }
     ]
   },
@@ -795,7 +885,7 @@ Na końcu wypisz krótko, co zapisałeś i gdzie.`
       { type: 'p', text: '**1. Przypomnij sobie, z czego składa się brandbook.** Prowadzący pokazuje gotowy przykład (demo projektu landing page, sekcja 2). Zwróć uwagę na sześć elementów: nazwę i propozycję wartości, ton głosu, zasady wezwań do działania (CTA), paletę kolorów z notą o kontraście, typografię oraz listę „czego unikać".' },
       { type: 'p', text: '[**2. Wygeneruj swój brandbook z własnego Second Brain.**](#blok-11-prompt-1) Wklej w Claude Code prompt, który zbuduje brandbook z Twojej wiedzy w sejfie, a zasady tonu i dostępności zaczerpnie z **Twojego** notatnika NotebookLM przez MCP.' },
       { type: 'p', text: '**3. Sprawdź efekt ingestu.** Prompt zostawia dwie rzeczy: surowy plik w `Źródła/` (Twój zapis „na twardo") oraz **stronę brandbooka w `Wiki/`**, połączoną odnośnikami ze stroną projektu strony. Od tej chwili tożsamość Twojej marki żyje w Second Brain jak każda inna wiedza.' },
-      { type: 'callout', kind: 'warning', title: 'Plan awaryjny (nie zatrzymuj się)', text: 'Jeśli idziesz przygotowaną **ścieżką UX** albo generowanie u Ciebie się nie powiedzie (most MCP kaprysi, notatnik pusty), **nie blokuj się**. Weź gotowy brandbook awaryjny (UX), skopiuj jego treść do pliku w `Źródła/` i zaingestuj tak jak w rozdziale 08. Efekt końcowy jest ten sam: brandbook w `Wiki/`. Po warsztacie wrócisz i wygenerujesz własny.' },
+      { type: 'callout', kind: 'warning', title: 'Plan awaryjny (nie zatrzymuj się)', text: 'Jeśli idziesz przygotowaną **ścieżką UX** albo generowanie u Ciebie się nie powiedzie (most MCP kaprysi, notatnik pusty), **nie blokuj się**. Weź [gotowy brandbook awaryjny (UX)](#blok-11-prompt-2), skopiuj jego treść do pliku w `Źródła/` i zaingestuj tak jak w rozdziale 08. Efekt końcowy jest ten sam: brandbook w `Wiki/`. Po warsztacie wrócisz i wygenerujesz własny.' },
       { type: 'callout', kind: 'info', title: 'Pierwsza realna korzyść z mostu MCP', text: 'To pierwszy moment, w którym **NotebookLM przez MCP** naprawdę pracuje na produkcję, a nie „na pokaz na przyszłość". Ton głosu i zasady dostępności w Twoim brandbooku wprost korzystają z wiedzy w Twoim notatniku. Most zbudowany w rozdziale 10 zaczyna się zwracać.' },
       { type: 'callout', kind: 'tip', title: 'Bez grafika i bez Canvy', text: 'Na jednodniową stronę **nie potrzebujesz rysowanego logo**. Wystarczy logotyp tekstowy złożony z nazwy i koloru akcentu (zbuduje go później Claude Code w CSS). Skupiamy się na decyzjach, które realnie zmieniają wygląd strony: kolory, typografia, ton.' },
       { type: 'heading', text: '📋 Do użycia' },
@@ -829,6 +919,62 @@ Zapisz wynik do folderu Źródła/ (nazwa: RRRR-MM-DD-brandbook-temat.md),
 a następnie wykonaj ingest zgodnie z CLAUDE.md: utwórz stronę w Wiki/, połącz
 ją odnośnikami [[…]] ze stroną projektu landing page, zaktualizuj Indeks.md
 i Dziennik.md. Na końcu pokaż, co powstało.`
+      },
+      {
+        label: 'Materiał referencyjny: brandbook awaryjny (ścieżka UX)',
+        text: `# Brandbook — Maria Nowak · Lean UX
+
+Przykładowa księga marki dla landing page projektanta Lean UX
+(interfejsy projektowane na podstawie hipotez i mierzalnych wyników).
+
+## 1. Nazwa i propozycja wartości
+- Wordmark: „Maria Nowak · Lean UX” (nazwa grafitem, „· Lean UX” w kolorze akcentu).
+- Propozycja wartości: „Projektuję interfejsy, które da się zmierzyć:
+  od hipotezy, przez szybki test, po wynik.”
+
+## 2. Ton głosu i zasady pisania
+Charakter: rzeczowy, konkretny, oparty na dowodach. Bez patosu i żargonu.
+- Prosty język: jedno zdanie to jedna myśl, bez waty słownej.
+- Odwrócona piramida: najważniejsze na początku sekcji; nagłówek niesie sens sam.
+- Język korzyści: pisz, co zyskuje odbiorca, nie co „oferuję”.
+- Bez żargonu: mów językiem odbiorcy.
+- Nienaganna ortografia i interpunkcja (to również wymóg dostępności).
+
+## 3. Wezwania do działania (CTA)
+- Etykieta = czasownik + konkret, 2–4 słowa, bez wykrzykników.
+- Dobrze: „Umów konsultację”, „Zobacz case study”, „Napisz do mnie”.
+- Źle: „Wyślij”, „Kliknij tutaj”, „Start”.
+
+## 4. Kolory
+| Rola | Nazwa | HEX | Zastosowanie |
+|---|---|---|---|
+| Tekst / atrament | Grafit | \`#111827\` | Tekst podstawowy, nagłówki na jasnym tle |
+| Tło ciemne | Granat nocny | \`#1E293B\` | Sekcje rewersowe, stopka |
+| Akcent / CTA | Indygo | \`#4F46E5\` | Tło przycisków (biały tekst), aktywne linki |
+| Wyróżnienie | Bursztyn | \`#F59E0B\` | Punktowe akcenty i liczby (metryki), nie drobny tekst |
+| Tło jasne | Mgła | \`#F8FAFC\` | Rozdzielenie sekcji |
+| Biel | Biały | \`#FFFFFF\` | Tła, tekst na ciemnym |
+
+Dostępność (WCAG): kontrast tekstu do tła min. 4,5:1 (duży tekst 3:1).
+Pary bezpieczne: grafit na bieli, biel na granacie, biel na indygo.
+Nie polegaj na samym kolorze: dokładaj obramowania, kształty i wyraźny stan
+skupienia (focus) dla klawiatury. Bursztyn na bieli nie nadaje się na drobny tekst.
+
+## 5. Typografia
+- Nagłówki i treść: Inter (bezszeryfowy, czytelny, darmowy).
+- Akcent „metryczny” (opcjonalnie): font monospace dla liczb i etykiet.
+- Wyrównanie do lewej, dwie grubości (regularna i pogrubiona), bez Wersalików.
+
+## 6. Logo
+Logotyp tekstowy: „Maria Nowak” grafitem + „· Lean UX” w indygo. Bez grafiki,
+bez cienia i gradientu. Na ciemnym tle wersja rewersowa (biel + indygo).
+
+## 7. Czego unikać
+- Ściany tekstu bez sekcji i nagłówków.
+- Wielu równorzędnych CTA na jednym ekranie.
+- Wyróżniania wyłącznie kolorem.
+- Żargonu i ogólników („innowacyjne rozwiązania”, „synergia”).
+- Generycznych etykiet przycisków („Wyślij”, „Kliknij”).`
       }
     ]
   },

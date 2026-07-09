@@ -5,6 +5,25 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.10.0] - 2026-07-09
+
+### Added
+- Blok 10: dodano nową kartę „Materiał referencyjny: instrukcja ręczna MCP do
+  NotebookLM (fallback)" jako trzeci prompt na końcu tablicy `prompts`
+  (#blok-10-prompt-3) — pełna transkrypcja ręcznej instrukcji instalacji
+  serwera MCP (uv, `nlm login`, wpis w konfiguracji, restart, rozwiązywanie
+  problemów). To materiał do skopiowania w inny sposób, nie prompt do
+  wklejenia w Claude, więc etykieta jasno to komunikuje. Callout „Wariant
+  ręczny (fallback)" linkuje teraz frazę „instrukcji MCP" do tej karty;
+  usunięto z niego nieaktualne zdanie „To także materiał dla prowadzącego."
+- Blok 11: dodano nową kartę „Materiał referencyjny: brandbook awaryjny
+  (ścieżka UX)" jako drugi prompt na końcu tablicy `prompts`
+  (#blok-11-prompt-2) — pełna treść gotowego brandbooka awaryjnego
+  (Maria Nowak · Lean UX) do skopiowania i zaingestowania, gdy generowanie
+  własnego brandbooka się nie powiedzie. Callout „Plan awaryjny (nie
+  zatrzymuj się)" linkuje teraz frazę „gotowy brandbook awaryjny (UX)" do
+  tej karty. Łącznie 22 prompty/karty na stronie.
+
 ## [1.9.0] - 2026-07-09
 
 ### Added
