@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.10.2';
+const APP_VERSION = '1.11.0';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -1195,8 +1195,8 @@ Podaj gotowy prompt do skopiowania.`
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Jeden ciąg: sejf pisze brief, agenci budują, recenzent sprawdza, wynik wraca do sejfu.' },
       { type: 'p', text: '[**1. Poproś Claude Code, żeby napisał prompt finalny (w sejfie).**](#blok-14-prompt-1) Wróć do Claude Code otwartego na **sejfie**. To on zna Twój brandbook, makietę, persony i ścieżkę, więc złoży z nich jeden kompletny brief. Dostajesz **prompt finalny** (samowystarczalny brief) i od razu masz go zapisanego w wiki jako udokumentowaną decyzję.' },
-      { type: 'p', text: '**2. Otwórz katalog DEV.** [Prompt finalny](#blok-14-prompt-1) masz już w schowku (z kroku 1) i zawiera ścieżkę Twojego sejfu jako źródło tylko do odczytu, więc webmaster odczyta makietę wprost z sejfu. Jeśli wolisz mieć wzór pod ręką w DEV albo dostęp do ścieżki sejfu okaże się niewygodny, **skopiuj plik makiety (HTML)** z sejfu do katalogu DEV jako plan awaryjny.' },
-      { type: 'p', text: '**3. Uruchom budowę w Claude Code (katalog DEV).** Przełącz się na sesję Claude Code otwartą na **katalogu DEV** i wklej [**prompt finalny**](#blok-14-prompt-1). Webmaster odwzorowuje makietę jako prawdziwą stronę wg brandbooka i **zaciąga treść merytoryczną z NotebookLM przez MCP**, a recenzent UX sprawdza wynik i zgłasza poprawki. Na końcu dostajesz **raport**: co powstało i co recenzent zalecił.' },
+      { type: 'p', text: '**2. Otwórz katalog DEV.** Prompt finalny masz już w schowku (z kroku 1) i zawiera ścieżkę Twojego sejfu jako źródło tylko do odczytu, więc webmaster odczyta makietę wprost z sejfu. Jeśli wolisz mieć wzór pod ręką w DEV albo dostęp do ścieżki sejfu okaże się niewygodny, **skopiuj plik makiety (HTML)** z sejfu do katalogu DEV jako plan awaryjny.' },
+      { type: 'p', text: '**3. Uruchom budowę w Claude Code (katalog DEV).** Przełącz się na sesję Claude Code otwartą na **katalogu DEV** i wklej prompt finalny. Webmaster odwzorowuje makietę jako prawdziwą stronę wg brandbooka i **zaciąga treść merytoryczną z NotebookLM przez MCP**, a recenzent UX sprawdza wynik i zgłasza poprawki. Na końcu dostajesz **raport**: co powstało i co recenzent zalecił.' },
       { type: 'callout', kind: 'info', title: 'NotebookLM realnie pracuje na treść', text: 'Tu spłaca się most z rozdziału 10 po raz drugi i mocniej: sekcje merytoryczne strony (na przykład „o podejściu" czy opis projektu) **nie są zmyślone**, tylko oparte na Twoim notatniku. Wiedza z NotebookLM wchodzi wprost do produktu.' },
       { type: 'p', text: '**4. Popraw stronę wg recenzji UX.** Jeśli recenzent UX zgłosił poprawki (kontrast, kolejność, jasność CTA), poproś webmastera, żeby je wprowadził. To krótka pętla **zbuduj → sprawdź → popraw**, dokładnie po to rozdzieliłeś role w rozdziale 13.' },
       { type: 'p', text: '[**5. Zaingestuj wynik do sejfu.**](#blok-14-prompt-2) Na koniec udokumentuj, co powstało, w Second Brain.' },
@@ -1259,7 +1259,7 @@ brandbookiem i zatwierdzoną makietą. Zaktualizuj Indeks.md i Dziennik.md.`
       { type: 'callout', kind: 'info', title: 'To ten sam sposób myślenia, co w sejfie', text: 'Kontrola wersji nie jest nowym pomysłem tego bloku. Twój sejf też jest wersjonowany na dysku, a każdy ingest to zapisana zmiana. Tu stosujesz tę samą zasadę do strony: historia zmian plus kopia poza jednym urządzeniem.' },
       { type: 'p', text: '**2. Adres — pod którym strona żyje (jak się tam dostać).** GitHub Pages nadaje stronie automatyczny adres w domenie `[github.io](https://github.io)`. Ktokolwiek go wpisze, trafia na Twoją stronę i w tym momencie jest ona **live** — prowadzący otwiera adres na telefonie i na ekranie widać ten sam, opublikowany produkt. Własną domenę, na przykład `mojastrona.pl`, można podpiąć później, ale to opcja, a nie warunek.' },
       { type: 'callout', kind: 'info', title: 'Cały łańcuch w jednym zdaniu', text: 'Pliki z DEV → **GitHub** (magazyn) → **GitHub Pages** (serwer) → **adres** `[github.io](https://github.io)` → strona otwiera się pod adresem w internecie.' },
-      { type: 'callout', kind: 'tip', title: 'Publikacja krok po kroku (GitHub Pages)', text: 'Tę drogę pokazuje prowadzący, a Ty powtórzysz ją u siebie. Statyczne pliki (dokładnie takie jak nasze) GitHub Pages udostępni **za darmo** pod gotowym adresem: (1) załóż na GitHubie **puste repozytorium** na stronę; (2) w Claude Code (w katalogu DEV) poproś o wysłanie strony do tego repo, zadbaj, żeby w **korzeniu repo** znalazł się plik `index.html`; (3) ustaw repo jako **publiczne** (Settings → General → sekcja „Danger Zone" → Change visibility → Make public), bo darmowe Pages działa tylko dla repozytoriów publicznych; (4) włącz publikację: Settings → Pages → Source: Deploy from a branch → gałąź main → folder / (root) → Save; (5) po chwili odśwież stronę Pages i skopiuj adres w domenie `[github.io](https://github.io)`. Przykład z pokazu: repozytorium `jtomeczek-dev/landing-ux` publikuje się pod adresem [https://jtomeczek-dev.github.io/landing-ux/](https://jtomeczek-dev.github.io/landing-ux/). Jeszcze prościej, przez Netlify ([netlify.com](https://netlify.com)): wchodzisz na [app.netlify.com/drop](https://app.netlify.com/drop) i przeciągasz folder ze stroną prosto w okno przeglądarki (albo podłączasz repo z GitHuba), a hosting stawia ją sam i od razu daje adres, bez żadnych ustawień serwera. Wszystko dzieje się w przeglądarce, tak samo na Windows i macOS. Różnica względem VPS: mniej kontroli, za to zero konfiguracji serwera. Do landing page zbudowanej dziś to najszybsza droga „na żywo" o własnych siłach.' },
+      { type: 'callout', kind: 'tip', title: 'Publikacja krok po kroku (GitHub Pages)', text: 'Tę drogę pokazuje prowadzący, a Ty powtórzysz ją u siebie. Statyczne pliki (dokładnie takie jak nasze) GitHub Pages udostępni **za darmo** pod gotowym adresem: (1) załóż na GitHubie **puste repozytorium** na stronę; (2) w Claude Code (w katalogu DEV) wklej [prompt „Załóż lokalne repo Git i wypchnij stronę na GitHub"](#blok-15-prompt-1), zadbaj, żeby w **korzeniu repo** znalazł się plik `index.html`; (3) ustaw repo jako **publiczne** (Settings → General → sekcja „Danger Zone" → Change visibility → Make public), bo darmowe Pages działa tylko dla repozytoriów publicznych; (4) włącz publikację: Settings → Pages → Source: Deploy from a branch → gałąź main → folder / (root) → Save; (5) po chwili odśwież stronę Pages i skopiuj adres w domenie `[github.io](https://github.io)`. Przykład z pokazu: repozytorium `jtomeczek-dev/landing-ux` publikuje się pod adresem [https://jtomeczek-dev.github.io/landing-ux/](https://jtomeczek-dev.github.io/landing-ux/). Jeszcze prościej, przez Netlify ([netlify.com](https://netlify.com)): wchodzisz na [app.netlify.com/drop](https://app.netlify.com/drop) i przeciągasz folder ze stroną prosto w okno przeglądarki (albo podłączasz repo z GitHuba), a hosting stawia ją sam i od razu daje adres, bez żadnych ustawień serwera. Wszystko dzieje się w przeglądarce, tak samo na Windows i macOS. Różnica względem VPS: mniej kontroli, za to zero konfiguracji serwera. Do landing page zbudowanej dziś to najszybsza droga „na żywo" o własnych siłach.' },
       { type: 'heading', text: '📋 Do użycia' },
       { type: 'p', text: 'Pliki do publikacji to gotowa strona z rozdziału 14 (katalog DEV). Konto GitHub (z checklisty) — na repozytorium strony i włączenie Pages. Hosting: GitHub Pages (główny) albo Netlify jako jeszcze prostsza alternatywa.' },
       { type: 'heading', text: '💡 Zapamiętaj' },
@@ -1272,7 +1272,30 @@ brandbookiem i zatwierdzoną makietą. Zaktualizuj Indeks.md i Dziennik.md.`
       'Strona została pokazana pod prawdziwym adresem, na innym urządzeniu niż to, na którym powstała.',
       'Wiesz, że własną statyczną stronę opublikujesz samodzielnie i za darmo hostingiem zarządzanym (GitHub Pages / Netlify), bez stawiania serwera.'
     ],
-    prompts: []
+    prompts: [
+      {
+        label: 'Załóż lokalne repo Git i wypchnij stronę na GitHub',
+        text: `Zainicjuj repozytorium Git w tym katalogu (jeśli jeszcze go nie ma), dodaj
+wszystkie pliki projektu do pierwszego commita i wyślij je do mojego
+repozytorium na GitHubie pod adresem: <ADRES-REPO-NA-GITHUBIE>
+
+Wykonaj po kolei:
+1. Sprawdź, czy katalog jest już repozytorium Git (git status); jeśli nie,
+   zainicjuj je (git init) i ustaw główną gałąź jako main.
+2. Dodaj plik .gitignore, jeśli jeszcze go nie ma (przynajmniej typowe wpisy
+   systemowe, np. .DS_Store).
+3. Dodaj wszystkie pliki i utwórz pierwszy commit z krótkim, opisowym
+   komunikatem.
+4. Dodaj zdalne repozytorium (git remote add origin <ADRES-REPO-NA-GITHUBIE>)
+   i wypchnij gałąź main na GitHub (git push -u origin main).
+5. Na końcu pokaż mi, pod jakim adresem jest teraz repozytorium i potwierdź,
+   że push się powiódł.
+
+Zanim cokolwiek wypchniesz, sprawdź, czy w plikach nie ma żadnych sekretów
+ani kluczy — jeśli coś takiego zauważysz, zatrzymaj się i zapytaj mnie,
+zamiast to commitować.`
+      }
+    ]
   },
   {
     id: '16',

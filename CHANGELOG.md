@@ -5,6 +5,21 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.11.0] - 2026-07-09
+
+### Added
+- Blok 15: nowy prompt „Załóż lokalne repo Git i wypchnij stronę na
+  GitHub" (`#blok-15-prompt-1`) — inicjalizacja repo, commit i push do
+  wskazanego repozytorium, z ostrzeżeniem przed commitowaniem sekretów.
+  Podlinkowany z punktu (2) instrukcji „Publikacja krok po kroku".
+  Łącznie 23 karty do skopiowania na stronie.
+
+### Fixed
+- Blok 14: usunięte mylące linki do „prompt finalny" w krokach 2 i 3 —
+  linkowały do promptu, który dopiero GENERUJE prompt finalny (krok 1),
+  a nie do samego prompta finalnego (ten nie istnieje jako karta na
+  stronie, bo powstaje dynamicznie w sejfie).
+
 ## [1.10.2] - 2026-07-09
 
 ### Changed
