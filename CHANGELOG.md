@@ -5,6 +5,43 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.7.0] - 2026-07-09
+
+### Added
+- Nowa globalna zasada renderowania: fragmenty treści bloków (`content`), które
+  w prozie wspominają konkretny prompt z tego samego bloku po nazwie/etykiecie
+  lub bliskiej parafrazie, są teraz klikalnymi linkami do kotwicy tej karty
+  promptu (`#blok-{NN}-prompt-{index}`, ten sam format ID, jaki generuje
+  `renderPromptCard`). Zlinkowano bloki 02 (6 miejsc: PROMPT 1 ×3, „pierwsza
+  decyzja o Twojej landing page", „prompt weryfikacyjny", nagłówek i akapit
+  „kończę pracę"), 07 (4 miejsca), 08 (1), 09 (1), 10 (2), 11 (1), 12 (3), 13
+  (3) i 14 (4) — łącznie 25 nowych linków w treści. `renderInline()` obsługuje
+  teraz zagnieżdżone `**pogrubienie**` wewnątrz `[tekst](url)` (linki
+  parsowane rekurencyjnie), a kotwice wewnętrzne (`href` zaczynający się od
+  `#`) otwierają się w tej samej karcie zamiast w nowej (adresy zewnętrzne bez
+  zmian: nowa karta). Nagłówki (`type: 'heading'`) przechodzą teraz również
+  przez `renderInline()`, więc mogą zawierać linki i pogrubienia tak samo jak
+  akapity, listy, ramki i cytaty.
+
+### Changed
+- Redakcja nawyku „Myślenie oddzielone od wykonania" → „Wiedza oddzielona od
+  kodu" (bloki 01 i 16, w treści i w `checkpoints` bloku 16): doprecyzowano,
+  że to WIEDZA mieszka w Second Brain, a KOD strony powstaje w osobnym
+  katalogu — nie „myślenie vs wykonanie".
+- Blok 01: „Trzy nawyki, które wrócą przez cały dzień" → „Trzy nawyki, które
+  będziemy powtarzać przez cały dzień".
+- Blok 02: doprecyzowano, że Claude Chat działa „w oknie przeglądarki na
+  `claude.ai` lub w aplikacji Claude Desktop" (wcześniej: „w oknie
+  przeglądarki lub w aplikacji na `claude.ai`"); „doradcy na jeden raz" →
+  „jednorazowego doradcy".
+- Blok 03: wprowadzono termin „halucynacje" („nie zmyśla i nie dryfuje" →
+  „nie ma halucynacji (...) i nie dryfuje") w opisie NotebookLM oraz w cytacie
+  „Zapamiętaj" („mniej zmyślania" → „mniej halucynacji"); dodano listę ośmiu
+  klikalnych linków do darmowych źródeł UX w sekcji „Do użycia".
+
+Te same poprawki tekstu wprowadzono już źródłowo w rozdziałach podręcznika
+w sejfie Obsidian (przez autora, poza zakresem tej zmiany w `app.js`).
+
 ## [1.6.0] - 2026-07-09
 
 ### Changed

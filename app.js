@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.6.0';
+const APP_VERSION = '1.7.0';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -102,11 +102,11 @@ const BLOCKS = [
         '**Po południu** produkujesz i publikujesz: z Second Brain powstają brandbook, makieta, agenci, a na końcu żywa strona.'
       ]},
       { type: 'p', text: 'Dlaczego w ogóle przenosimy wiedzę do sejfu, zamiast zostać w czacie? Bo **Second Brain oszczędza pracę**: rozmowa w zwykłym czacie AI czyta wszystko od nowa przy każdym pytaniu, a sejf połączony odnośnikami (WikiLinki) podaje tylko to, co istotne. Raz uporządkowana wiedza pracuje wielokrotnie. Rozwiniemy to w rozdziale 05.' },
-      { type: 'p', text: '**Trzy nawyki, które wrócą przez cały dzień.** To jest właściwa lekcja, ważniejsza niż którekolwiek narzędzie. Dziś zobaczysz każdy z nich wielokrotnie, a na koniec zabierasz je jako gotową metodę:' },
+      { type: 'p', text: '**Trzy nawyki, które będziemy powtarzać przez cały dzień.** To jest właściwa lekcja, ważniejsza niż którekolwiek narzędzie. Dziś zobaczysz każdy z nich wielokrotnie, a na koniec zabierasz je jako gotową metodę:' },
       { type: 'ul', items: [
         '**„Kończę pracę".** Każdą sesję domykasz tak, że ustalenia trafiają do **trwałej pamięci**, a nie giną w historii czatu.',
         '**Raport i ingest.** Nowa wiedza wraca do sejfu jako **strona bazy wiedzy połączona** z resztą, więc rośnie sieć powiązań w bazie wiedzy, a nie sterta luźnych plików.',
-        '**Myślenie oddzielone od wykonania.** Plan powstaje w Second Brain, a wykonanie w osobnym miejscu, dzięki czemu jedno nie miesza się z drugim.'
+        '**Wiedza oddzielona od kodu.** Wiedza mieszka w Second Brain, a kod strony powstaje w osobnym katalogu, dzięki czemu jedno nie miesza się z drugim.'
       ]},
       { type: 'callout', kind: 'warning', title: 'Ważne: to wymaga dyscypliny', text: 'Ta metoda jest **pracochłonna i wymaga systematyczności** — to jej cecha, nie wada. Second Brain działa dokładnie na tyle, na ile go karmisz i domykasz sesje. Dobra wiadomość: dziś przećwiczysz każdy z tych nawyków po kolei, więc wyjdziesz z **gotowym rytmem pracy**, a nie z samą teorią.' },
       { type: 'heading', text: '📋 Do użycia' },
@@ -128,9 +128,9 @@ const BLOCKS = [
     time: '8:20–9:05',
     mode: 'ćwiczenie praktyczne',
     content: [
-      { type: 'callout', kind: 'info', title: 'Czym jest Claude Chat i Projekt', text: '**Claude Chat** to Claude, z którym rozmawiasz w oknie przeglądarki lub w aplikacji na `claude.ai`. Każda rozmowa to osobny czat. **Projekt** to wydzielona przestrzeń w Claude Chat, która grupuje powiązane rozmowy i nadaje im **wspólne, trwałe** instrukcje oraz dokumenty. Dzięki temu Claude w danym Projekcie zna Twój kontekst w każdej rozmowie, zamiast zaczynać za każdym razem od zera. To właśnie z Projektu korzystasz w tym rozdziale.' },
+      { type: 'callout', kind: 'info', title: 'Czym jest Claude Chat i Projekt', text: '**Claude Chat** to Claude, z którym rozmawiasz w oknie przeglądarki na `claude.ai` lub w aplikacji Claude Desktop. Każda rozmowa to osobny czat. **Projekt** to wydzielona przestrzeń w Claude Chat, która grupuje powiązane rozmowy i nadaje im **wspólne, trwałe** instrukcje oraz dokumenty. Dzięki temu Claude w danym Projekcie zna Twój kontekst w każdej rozmowie, zamiast zaczynać za każdym razem od zera. To właśnie z Projektu korzystasz w tym rozdziale.' },
       { type: 'heading', text: '🎯 Ważne' },
-      { type: 'p', text: 'Zwykły czat zapomina wszystko po jego zamknięciu. **Projekt** w Claude ma trwały kontekst: instrukcje i dokumenty, które model czyta przy każdej rozmowie. W tym kroku **konfigurujesz środowisko pracy**, czyli zamieniasz Claude z „doradcy na jeden raz" w **stałego mentora** znającego Twój kontekst i cel.' },
+      { type: 'p', text: 'Zwykły czat zapomina wszystko po jego zamknięciu. **Projekt** w Claude ma trwały kontekst: instrukcje i dokumenty, które model czyta przy każdej rozmowie. W tym kroku **konfigurujesz środowisko pracy**, czyli zamieniasz Claude z „jednorazowego doradcy" w **stałego mentora** znającego Twój kontekst i cel.' },
       { type: 'heading', text: '🧩 Co ustawiasz: trzy przestrzenie Projektu' },
       { type: 'p', text: 'Różni je zmienność przechowywanych treści:' },
       { type: 'ol', items: [
@@ -142,21 +142,21 @@ const BLOCKS = [
       { type: 'ol', items: [
         'Wejdź do Claude → Projekty → Utwórz projekt. Nazwij go np. „Mój mentor: {{Twoja dziedzina}}".',
         'Otwórz **nową rozmowę w tym projekcie**.',
-        'Weź PROMPT 1 i **wypełnij pola `{{…}}`** (kim jesteś, dziedzina, cel, obszary). To Twoja praca myślowa.',
+        'Weź [PROMPT 1](#blok-02-prompt-1) i **wypełnij pola `{{…}}`** (kim jesteś, dziedzina, cel, obszary). To Twoja praca myślowa.',
         'Wklej wypełniony prompt i wyślij. Claude zada Ci **3–5 pytań**; odpowiedz spokojnie, bo one uzupełnią niezbędny kontekst dla Claude.',
         'Dostajesz cztery elementy: **tekst instrukcji projektu**, **`skills.md`**, **`persony.md`** oraz **zasadę korzystania z pamięci projektu** (co jest ulotne, a co trwałe).',
         '**Wklej instrukcje** w Ustawienia projektu → Instrukcje.',
         '**Wgraj** `skills.md` i `persony.md` do **wiedzy projektu**.'
       ]},
       { type: 'heading', text: '📋 Do użycia' },
-      { type: 'p', text: 'Gotowiec: PROMPT 1: „skonfiguruj Projekt Claude jako mentora" (z polami i promptem domykającym „kończę pracę").' },
+      { type: 'p', text: 'Gotowiec: [PROMPT 1: „skonfiguruj Projekt Claude jako mentora"](#blok-02-prompt-1) (z polami i promptem domykającym [„kończę pracę"](#blok-02-prompt-3)).' },
       { type: 'callout', kind: 'note', title: 'Nie pomyl „Skills" ze `skills.md`', text: 'Funkcja **„Skills"** w Claude to biblioteka gotowych umiejętności/rozszerzeń (część od Anthropic, część własne). Nasz **`skills.md`** to Twój dokument **przepływów pracy** w wiedzy projektu. Ta sama nazwa, dwie różne rzeczy.' },
       { type: 'heading', text: '▶️ Sprawdź, że mentor korzysta z wiedzy projektu' },
-      { type: 'p', text: 'Zanim domkniesz sesję, zadaj Claude\'owi zadanie, które **musi** sięgnąć do tego, co przed chwilą zostało wgrane. Zrobimy to od razu na temacie, który przyda się później: **pierwsza decyzja o Twojej landing page**. Wynik zapiszemy jako artefakt `.md` i wykorzystamy po południu.' },
+      { type: 'p', text: 'Zanim domkniesz sesję, zadaj Claude\'owi zadanie, które **musi** sięgnąć do tego, co przed chwilą zostało wgrane. Zrobimy to od razu na temacie, który przyda się później: [**pierwsza decyzja o Twojej landing page**](#blok-02-prompt-2). Wynik zapiszemy jako artefakt `.md` i wykorzystamy po południu.' },
       { type: 'p', text: 'Dobry znak: Claude przywołuje Twoje persony po rolach (choć nie ma ich w tej rozmowie, bo są w wiedzy projektu) i trzyma ton z instrukcji. Powstały artefakt `.md` **później dodasz do wiedzy projektu** i wykorzystasz przy budowie strony.' },
-      { type: 'callout', kind: 'tip', title: 'Dla prowadzącego', text: 'Gotowe, wypełnione wersje UX (PROMPT 1 oraz prompt weryfikacyjny), do wklejenia bez edycji podczas pokazu: Demo dla prowadzącego (UX).' },
-      { type: 'heading', text: '🔒 Domknięcie sesji („kończę pracę")' },
-      { type: 'p', text: 'Zanim przejdziemy dalej, utrwal ustalenia. Uruchom prompt domykający „kończę pracę" z gotowca. Claude **zaproponuje zmiany w instrukcjach projektu** (co i gdzie) oraz odda `skills.md` i `persony.md` w całości. Następnie **ręcznie**: nanieś zmiany w polu instrukcji projektu i **wgraj oba dokumenty z powrotem** do wiedzy projektu. (Claude nie edytuje pola instrukcji samodzielnie; robisz to Ty.)' },
+      { type: 'callout', kind: 'tip', title: 'Dla prowadzącego', text: 'Gotowe, wypełnione wersje UX ([PROMPT 1](#blok-02-prompt-1) oraz [prompt weryfikacyjny](#blok-02-prompt-2)), do wklejenia bez edycji podczas pokazu: Demo dla prowadzącego (UX).' },
+      { type: 'heading', text: '🔒 Domknięcie sesji ([„kończę pracę"](#blok-02-prompt-3))' },
+      { type: 'p', text: 'Zanim przejdziemy dalej, utrwal ustalenia. Uruchom prompt domykający [„kończę pracę"](#blok-02-prompt-3) z gotowca. Claude **zaproponuje zmiany w instrukcjach projektu** (co i gdzie) oraz odda `skills.md` i `persony.md` w całości. Następnie **ręcznie**: nanieś zmiany w polu instrukcji projektu i **wgraj oba dokumenty z powrotem** do wiedzy projektu. (Claude nie edytuje pola instrukcji samodzielnie; robisz to Ty.)' },
       { type: 'p', text: 'To **najważniejszy nawyk całego kursu**: ustalenia zapisujesz w instrukcjach i dokumentach, nie zostawiasz ich w historii czatu, która się gubi.' },
       { type: 'heading', text: '💡 Zapamiętaj' },
       { type: 'quote', text: '**Trwały kontekst znaczy więcej niż historia czatu.** Mentor jest tak dobry, jak jego pamięć, a Ty budujesz tę pamięć świadomie: **instrukcje projektu** (jak ma pracować) oraz **dokumenty w wiedzy** (`skills.md`, `persony.md`). To pierwszy z **trzech nawyków** metody, „kończę pracę" (zob. rozdz. 01). Wróci dziś jeszcze wielokrotnie. Struktura Second Brain przyjdzie później; dziś stawiasz środowisko.' },
@@ -262,7 +262,7 @@ Ustalenia zapisz w pamięci projektu.`
     content: [
       { type: 'callout', kind: 'info', title: 'Czym jest NotebookLM', text: '**NotebookLM** to darmowe narzędzie Google (wymaga konta Google), rodzaj **inteligentnego notatnika**: wgrywasz do niego własne źródła (dokumenty, PDF-y, strony WWW), a on staje się ekspertem **wyłącznie od tych materiałów**. W metodzie z tego kursu pełni rolę **biblioteki wiedzy dziedzinowej**, z której Claude sięga po potrzebne fragmenty.' },
       { type: 'heading', text: '🎯 Ważne' },
-      { type: 'p', text: 'Rozdział 02 skończył się wnioskiem, że potrzebujemy **bazy wektorowej**, a najprostszą i ogólnodostępną jest **NotebookLM**. Zanim podłączymy go do Claude, warto go zrozumieć. NotebookLM to notatnik, który odpowiada **wyłącznie na podstawie Twoich źródeł** i **cytuje** je w odpowiedziach. Dzięki temu nie zmyśla i nie dryfuje, a to rozwiązuje dwa problemy z poprzedniego rozdziału: koszt i niespójność.' },
+      { type: 'p', text: 'Rozdział 02 skończył się wnioskiem, że potrzebujemy **bazy wektorowej**, a najprostszą i ogólnodostępną jest **NotebookLM**. Zanim podłączymy go do Claude, warto go zrozumieć. NotebookLM to notatnik, który odpowiada **wyłącznie na podstawie Twoich źródeł** i **cytuje** je w odpowiedziach. Dzięki temu nie ma **halucynacji** (sytuacji, w której AI zmyśla brzmiącą wiarygodnie, ale nieprawdziwą informację) i nie dryfuje, a to rozwiązuje dwa problemy z poprzedniego rozdziału: koszt i niespójność.' },
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Prowadzący pokazuje NotebookLM na gotowym **notatniku dziedzinowym o UX**. Zwróć uwagę na trzy elementy:' },
       { type: 'ol', items: [
@@ -273,8 +273,18 @@ Ustalenia zapisz w pamięci projektu.`
       { type: 'p', text: 'Notatnik prowadzącego z płatnymi książkami służy **tylko do pokazu z ekranu** i nie jest udostępniany. Następnie **tworzysz własny notatnik** na swoim koncie `@gmail.com` i dodajesz do niego kilka **darmowych źródeł UX** z listy.' },
       { type: 'heading', text: '📋 Do użycia' },
       { type: 'p', text: 'Lista darmowych źródeł UX do dodania w swoim notatniku: Darmowe źródła UX do własnego notatnika.' },
+      { type: 'ul', items: [
+        '[https://jeffgothelf.com/blog/how-to-use-the-lean-ux-canvas/](https://jeffgothelf.com/blog/how-to-use-the-lean-ux-canvas/)',
+        '[https://jeffgothelf.com/wp-content/uploads/2016/12/LeanUX_canvas_v4.pdf](https://jeffgothelf.com/wp-content/uploads/2016/12/LeanUX_canvas_v4.pdf)',
+        '[https://lawsofux.com/](https://lawsofux.com/)',
+        '[https://www.nngroup.com/articles/ten-usability-heuristics/](https://www.nngroup.com/articles/ten-usability-heuristics/)',
+        '[https://www.nngroup.com/articles/usability-101-introduction-to-usability/](https://www.nngroup.com/articles/usability-101-introduction-to-usability/)',
+        '[https://www.gov.uk/guidance/content-design](https://www.gov.uk/guidance/content-design)',
+        '[https://www.gov.uk/service-manual/design/writing-for-user-interfaces](https://www.gov.uk/service-manual/design/writing-for-user-interfaces)',
+        '[https://webaim.org/intro/](https://webaim.org/intro/)'
+      ]},
       { type: 'heading', text: '💡 Zapamiętaj' },
-      { type: 'quote', text: '**NotebookLM odpowiada tylko z Twoich źródeł i cytuje je.** To go odróżnia od zwykłego czatu: mniej zmyślania, większa spójność, niższy koszt.' },
+      { type: 'quote', text: '**NotebookLM odpowiada tylko z Twoich źródeł i cytuje je.** To go odróżnia od zwykłego czatu: mniej halucynacji, większa spójność, niższy koszt.' },
       { type: 'heading', text: '⏭️ Co dalej' },
       { type: 'p', text: 'Znasz już NotebookLM i masz własny notatnik. Teraz wracamy do Claude: w rozdziale 04 dostroimy ustawienia konta i przygotujemy grunt pod Claude Code. Następnie przenosimy pracę **na dysk** (Obsidian i Claude Code), a **połączenie NotebookLM z Claude przez MCP** dołożymy później, w rozdziale 10, gdy będzie już czym je zasilić.' }
     ],
@@ -496,14 +506,14 @@ Ustalenia zapisz w pamięci projektu.`
       { type: 'callout', kind: 'info', title: 'Dlaczego własny szkielet, a nie gotowe repo', text: 'Karpathy udostępnił „LLM Wiki" jako **ideę do współtworzenia z agentem**, a nie jako paczkę do zainstalowania. Dlatego bierzemy **gotowy szkielet** `CLAUDE.md` i **przyjmujesz go na własność**: uzupełniasz o swoją dziedzinę i dostrajasz razem z Claude Code. To spójne z tezą kursu: schemat Twojego Second Brain jest Twój, a nie cudzy.' },
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Ten blok robimy wspólnie: pokazuję u siebie, a Ty powtarzasz na swoim sejfie.' },
-      { type: 'p', text: '**1. Utwórz plik `CLAUDE.md` i wklej do niego szkielet.** Świeży sejf Obsidiana **nie ma** pliku `CLAUDE.md`, więc najpierw trzeba go **utworzyć** w korzeniu sejfu. Najprościej w Obsidianie: utwórz nową notatkę i nazwij ją dokładnie `CLAUDE` (wielkimi literami; Obsidian zapisze ją jako `CLAUDE.md`). Następnie otwórz gotowiec „Szkielet CLAUDE.md", skopiuj całą zawartość ramki do tego pliku i uzupełnij pola w nawiasach `<…>` (nazwa sejfu, Twoja dziedzina, język). Dopiero ten plik sprawia, że Claude Code wie, jak utrzymywać Twój sejf i zasilać go wiedzą.' },
-      { type: 'p', text: '**2. Poproś Claude Code o dostosowanie schematu.** W Claude Code (otwartym na sejfie z rozdziału 06) wklej prompt, podstawiając swoją dziedzinę w miejsce `<TWOJA-DZIEDZINA>`. Prompt pochodzi z gotowca „Szkielet CLAUDE.md" (sekcja „Jak dostosować szkielet do siebie").' },
+      { type: 'p', text: '**1. Utwórz plik `CLAUDE.md` i wklej do niego szkielet.** Świeży sejf Obsidiana **nie ma** pliku `CLAUDE.md`, więc najpierw trzeba go **utworzyć** w korzeniu sejfu. Najprościej w Obsidianie: utwórz nową notatkę i nazwij ją dokładnie `CLAUDE` (wielkimi literami; Obsidian zapisze ją jako `CLAUDE.md`). Następnie otwórz gotowiec [„Szkielet CLAUDE.md"](#blok-07-prompt-1), skopiuj całą zawartość ramki do tego pliku i uzupełnij pola w nawiasach `<…>` (nazwa sejfu, Twoja dziedzina, język). Dopiero ten plik sprawia, że Claude Code wie, jak utrzymywać Twój sejf i zasilać go wiedzą.' },
+      { type: 'p', text: '**2. Poproś Claude Code o dostosowanie schematu.** W Claude Code (otwartym na sejfie z rozdziału 06) wklej prompt, podstawiając swoją dziedzinę w miejsce `<TWOJA-DZIEDZINA>`. Prompt pochodzi z gotowca [„Szkielet CLAUDE.md"](#blok-07-prompt-1) (sekcja „Jak dostosować szkielet do siebie").' },
       { type: 'p', text: 'Claude przeczyta `CLAUDE.md` i **zaproponuje** podfoldery encji i koncepcji oraz przykładowe strony pod Twoją dziedzinę. Omawiacie propozycję, a Ty ją zatwierdzasz. **Dopiero po akceptacji** poproś Claude Code, żeby utworzył strukturę (`Źródła/`, `Wiki/…`, `Indeks.md`, `Dziennik.md`). To właśnie moment „współtworzenia" wg Karpathy\'ego.' },
-      { type: 'p', text: '**3. Zainstaluj skille Obsidiana (kepano).** Dokładasz Claude Code umiejętności pracy z Obsidianem z repozytorium kepano/obsidian-skills. Najprościej **poprosić o to Claude Code**, wklejając gotowy prompt.' },
+      { type: 'p', text: '[**3. Zainstaluj skille Obsidiana (kepano).**](#blok-07-prompt-3) Dokładasz Claude Code umiejętności pracy z Obsidianem z repozytorium kepano/obsidian-skills. Najprościej **poprosić o to Claude Code**, wklejając gotowy prompt.' },
       { type: 'p', text: 'Claude Code wykona instalację (poprosi o zgodę na komendę) i pokaże listę skilli. Alternatywnie, jeśli masz zainstalowane Node i npm, możesz uruchomić instalację samodzielnie: `npx skills add https://github.com/kepano/obsidian-skills`.' },
       { type: 'callout', kind: 'note', title: 'Skąd te skille i co dają', text: 'Autorem jest **kepano** (Steph Ango, dyrektor Obsidiana), więc to skille „u źródła". Dają Claude Code pięć umiejętności: **Markdown** — pisze i redaguje notatki w formacie Obsidiana (wikilinki, osadzenia, callouty, właściwości), czyli tworzy poprawne, spójne strony wiki; **Bases** — buduje w sejfie widoki tabelaryczne i kartowe z filtrami i formułami, czyli zestawienia notatek działające jak prosta baza danych; **Canvas** — tworzy tablice wizualne (kafelki połączone liniami), przydatne do map myśli i schematów; **Obsługa sejfu (CLI)** — zarządza sejfem z poziomu poleceń, co pozwala automatyzować operacje na wielu plikach naraz; **Oczyszczanie stron WWW (defuddle)** — pobiera stronę internetową i wyciąga z niej czysty tekst bez reklam i nawigacji, gotowy do dodania jako źródło.' },
       { type: 'heading', text: '📋 Do użycia' },
-      { type: 'p', text: 'Gotowiec: Szkielet CLAUDE.md (wg Karpathy\'ego) — szkielet do skopiowania + prompt dostosowujący. Skille Obsidiana: kepano/obsidian-skills.' },
+      { type: 'p', text: 'Gotowiec: [Szkielet CLAUDE.md](#blok-07-prompt-1) (wg Karpathy\'ego) — szkielet do skopiowania + [prompt dostosowujący](#blok-07-prompt-2). Skille Obsidiana: kepano/obsidian-skills.' },
       { type: 'heading', text: '💡 Zapamiętaj' },
       { type: 'quote', text: '**`CLAUDE.md` to konstytucja Twojego Second Brain.** Im lepiej opiszesz w nim swoją dziedzinę i zasady, tym trafniej Claude Code porządkuje wiedzę. To dokument żywy: wracasz do niego i dopisujesz zasady, gdy zauważysz, że coś robisz powtarzalnie. Najważniejsze, że ten schemat jest **Twój, przyjęty na własność**, a nie skopiowany z cudzego repozytorium.' },
       { type: 'heading', text: '⏭️ Co dalej' },
@@ -618,7 +628,7 @@ Po instalacji wypisz, jakie skille są teraz dostępne.`
       { type: 'p', text: 'Ten blok robimy wspólnie: pokazuję u siebie, a Ty powtarzasz na swoim sejfie.' },
       { type: 'p', text: '**1. Wyeksportuj dane Projektu z Claude Chat (migracja).** Wróć do swojego **Projektu w Claude Chat** i otwórz w nim **nową rozmowę**. Wklej prompt, żeby Claude przygotował dane Projektu jako pliki `.md` do pobrania. Poczekaj, aż Claude wyświetli wszystkie artefakty `.md`.' },
       { type: 'p', text: '**2. Zapisz i skopiuj pliki do sejfu.** Pobierz każdy artefakt (pliki trafiają zwykle do folderu **Pobrane** / Downloads), a następnie **skopiuj** je do folderu **`Źródła/`** w swoim sejfie Obsidian. Od tej chwili Twoja poranna praca jest już na dysku, w warstwie surowca.' },
-      { type: 'p', text: '**3. Poproś Claude Chat o prompt ingestujący.** Wróć do tej samej rozmowy w Claude Chat (Claude wciąż zna te pliki) i poproś go, żeby przygotował **gotowy prompt ingestujący dla Claude Code**. Dzięki temu prompt ingestujący jest **świadomy treści** Twoich plików (Claude Chat wie, co w nich jest), a nie ogólny.' },
+      { type: 'p', text: '**3. Poproś Claude Chat o prompt ingestujący.** Wróć do tej samej rozmowy w Claude Chat (Claude wciąż zna te pliki) i poproś go, żeby przygotował [**gotowy prompt ingestujący dla Claude Code**](#blok-08-prompt-2). Dzięki temu prompt ingestujący jest **świadomy treści** Twoich plików (Claude Chat wie, co w nich jest), a nie ogólny.' },
       { type: 'p', text: '**4. Uruchom ingest w Claude Code.** Skopiuj prompt wygenerowany przez Claude Chat i wklej go w **Claude Code** (otwartym na sejfie). Claude Code przeczyta surowce z `Źródła/`, utworzy pierwsze strony wiki wg `CLAUDE.md` i pokaże podsumowanie: ile stron powstało lub się zmieniło.' },
       { type: 'callout', kind: 'tip', title: 'Wariant skrócony', text: 'Jeśli chcesz pominąć krok 3, możesz w Claude Code po prostu napisać: „Zrób ingest folderu `Źródła/` zgodnie z zasadami z `CLAUDE.md`". Prompt przygotowany przez Claude Chat daje jednak lepszy efekt, bo z góry opisuje, co jest w plikach.' },
       { type: 'p', text: '**5. Zobacz graf wiedzy.** Otwórz w Obsidianie **widok grafu** (ikona z połączonymi kropkami). Zobaczysz swoje pierwsze strony i **linie połączeń** między nimi. Nawet kilka stron już tworzy sieć, a to jest namacalny dowód, że wiedza się łączy.' },
@@ -678,7 +688,7 @@ Podaj sam gotowy prompt, gotowy do skopiowania.`
       { type: 'p', text: '**1. Sprawdź wtyczkę Web Clipper.** Rozszerzenie **Obsidian Web Clipper** dodajesz do przeglądarki **przed kursem** (wg checklisty). Jeśli jeszcze go nie masz, dodaj je teraz ze strony obsidian.md/download (sekcja Web Clipper: Chrome, Firefox, Safari, Edge).' },
       { type: 'p', text: '**2. Wskaż sejf i folder zapisu.** W ustawieniach wtyczki wskaż **swój sejf**. Klipy domyślnie trafiają do folderu **`Clippings`** w tym sejfie. Możesz zostawić ten domyślny folder albo zmienić go na **`Źródła/`**, jeśli wolisz trzymać cały surowiec w jednym miejscu. Dokładne ekrany pokazuję na żywo.' },
       { type: 'p', text: '**3. Sklipuj strony kursu.** Otwórz strony kursu (adres poda prowadzący) i sklipuj kilka rozdziałów. Każdy trafi jako czysty plik `.md` do wybranego folderu (domyślnie `Clippings`) w Twoim sejfie.' },
-      { type: 'p', text: '**4. Zaingestuj klipy.** W **Claude Code** poproś o ingest nowych plików, podobnie jak w rozdziale 08.' },
+      { type: 'p', text: '[**4. Zaingestuj klipy.**](#blok-09-prompt-1) W **Claude Code** poproś o ingest nowych plików, podobnie jak w rozdziale 08.' },
       { type: 'p', text: '**5. Zobacz, jak graf się rozrasta.** Wróć do **widoku grafu**. Po dołożeniu treści kursu pojawi się więcej stron i połączeń niż po samej migracji. To ten sam mechanizm, tylko z bogatszym materiałem.' },
       { type: 'heading', text: '📋 Do użycia' },
       { type: 'p', text: 'Wtyczka: Obsidian Web Clipper (link podaje prowadzący). Operacja INGEST jest opisana w Twoim `CLAUDE.md` (z rozdziału 07).' },
@@ -719,8 +729,8 @@ Pokaż, co powstało lub się zmieniło.`
       { type: 'p', text: '**3. Zrestartuj aplikację Claude Desktop.** Gdy Claude Code skończy, zrestartuj aplikację, żeby wczytała nowy serwer MCP.' },
       { type: 'p', text: '**4. Przetestuj.** Wpisz „Wylistuj moje notatniki NotebookLM". Jeśli zwraca Twoją listę, most działa.' },
       { type: 'callout', kind: 'note', title: 'Wariant ręczny (fallback)', text: 'Gdyby coś się nie powiodło, tę samą instalację można przeprowadzić **ręcznie** (uv, `nlm login`, wpis w konfiguracji, restart). Pełne, zweryfikowane kroki są w instrukcji MCP. To także materiał dla prowadzącego.' },
-      { type: 'heading', text: '🔒 Domknięcie sesji (SESSION-CLOSE)' },
-      { type: 'p', text: 'NotebookLM działa, więc **domykasz przedpołudniową sesję**. Robisz to po raz pierwszy: pełny **SESSION-CLOSE** to rozwinięta wersja nawyku **„kończę pracę"** z rozdziału 02, teraz uruchomiona w Twoim Second Brain. Poproś o to Claude Code.' },
+      { type: 'heading', text: '🔒 Domknięcie sesji ([SESSION-CLOSE](#blok-10-prompt-1))' },
+      { type: 'p', text: 'NotebookLM działa, więc **domykasz przedpołudniową sesję**. Robisz to po raz pierwszy: pełny [**SESSION-CLOSE**](#blok-10-prompt-1) to rozwinięta wersja nawyku **„kończę pracę"** z rozdziału 02, teraz uruchomiona w Twoim Second Brain. Poproś o to Claude Code.' },
       { type: 'callout', kind: 'info', title: 'Dlaczego robisz to na koniec sesji', text: 'Praca w rozmowie jest **ulotna**: zamkniesz okno i kontekst znika. SESSION-CLOSE przenosi to, co ważne, z ulotnej rozmowy do **trwałej pamięci** Second Brain, żeby następnym razem zacząć od miejsca, w którym praca się urwała, a nie od zera. To ta sama zasada, co nawyk „kończę pracę" z rozdziału 02: **ustalenia zapisujesz, nie zostawiasz ich w historii czatu**. Kolejność jest celowa: najpierw **pamięć** (co się wydarzyło), potem **strategia** (dokąd zmierzam), na końcu **workflow** (jak pracuję), czyli od faktów, przez kierunek, po metodę.' },
       { type: 'callout', kind: 'tip', title: 'Zapisz to jako swój rytuał', text: 'Ten rytuał możesz opisać w swoim `CLAUDE.md` (albo w `skills.md`), żeby następnym razem wywołać go jednym hasłem, na przykład „kończę pracę". Wtedy nie musisz pamiętać całego promptu.' },
       { type: 'heading', text: '📋 Do użycia' },
@@ -765,7 +775,7 @@ Na końcu wypisz krótko, co zapisałeś i gdzie.`
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Prowadzący robi to na swoim ekranie i mówi, co robić; Ty **powtarzasz na swoim sejfie**. To zarazem pierwszy sprawdzian, czy Twój most do NotebookLM z rozdziału 10 realnie pracuje.' },
       { type: 'p', text: '**1. Przypomnij sobie, z czego składa się brandbook.** Prowadzący pokazuje gotowy przykład (demo projektu landing page, sekcja 2). Zwróć uwagę na sześć elementów: nazwę i propozycję wartości, ton głosu, zasady wezwań do działania (CTA), paletę kolorów z notą o kontraście, typografię oraz listę „czego unikać".' },
-      { type: 'p', text: '**2. Wygeneruj swój brandbook z własnego Second Brain.** Wklej w Claude Code prompt, który zbuduje brandbook z Twojej wiedzy w sejfie, a zasady tonu i dostępności zaczerpnie z **Twojego** notatnika NotebookLM przez MCP.' },
+      { type: 'p', text: '[**2. Wygeneruj swój brandbook z własnego Second Brain.**](#blok-11-prompt-1) Wklej w Claude Code prompt, który zbuduje brandbook z Twojej wiedzy w sejfie, a zasady tonu i dostępności zaczerpnie z **Twojego** notatnika NotebookLM przez MCP.' },
       { type: 'p', text: '**3. Sprawdź efekt ingestu.** Prompt zostawia dwie rzeczy: surowy plik w `Źródła/` (Twój zapis „na twardo") oraz **stronę brandbooka w `Wiki/`**, połączoną odnośnikami ze stroną projektu strony. Od tej chwili tożsamość Twojej marki żyje w Second Brain jak każda inna wiedza.' },
       { type: 'callout', kind: 'warning', title: 'Plan awaryjny (nie zatrzymuj się)', text: 'Jeśli idziesz przygotowaną **ścieżką UX** albo generowanie u Ciebie się nie powiedzie (most MCP kaprysi, notatnik pusty), **nie blokuj się**. Weź gotowy brandbook awaryjny (UX), skopiuj jego treść do pliku w `Źródła/` i zaingestuj tak jak w rozdziale 08. Efekt końcowy jest ten sam: brandbook w `Wiki/`. Po warsztacie wrócisz i wygenerujesz własny.' },
       { type: 'callout', kind: 'info', title: 'Pierwsza realna korzyść z mostu MCP', text: 'To pierwszy moment, w którym **NotebookLM przez MCP** naprawdę pracuje na produkcję, a nie „na pokaz na przyszłość". Ton głosu i zasady dostępności w Twoim brandbooku wprost korzystają z wiedzy w Twoim notatniku. Most zbudowany w rozdziale 10 zaczyna się zwracać.' },
@@ -815,13 +825,13 @@ i Dziennik.md. Na końcu pokaż, co powstało.`
       { type: 'p', text: 'Brandbook z rozdziału 11 powiedział, **jak** marka wygląda i mówi. Teraz zamieniasz to w **konkretny wygląd strony** i go **zatwierdzasz**. Najlepsze jest to, że **nie piszesz tego promptu sam**: Twój Second Brain zna już propozycję wartości, ścieżkę użytkownika i brandbook, więc to **Claude Code przygotuje pełny brief** dla narzędzia projektowego. Ty przenosisz brief do Claude Design, dopracowujesz makietę, aż wygląda jak strona, którą chcesz opublikować, i odsyłasz ją do sejfu jako **zatwierdzony wzorzec wyglądu**.' },
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Trzy narzędzia, jeden ciąg: **Claude Code** pisze brief → **Claude Design** rysuje makietę → **sejf** przyjmuje ją jako zatwierdzony wzorzec. Prowadzący pokazuje każdy krok, Ty powtarzasz u siebie.' },
-      { type: 'p', text: '**1. Poproś Claude Code, żeby napisał brief.** Claude Code siedzi na Twoim sejfie i zna Twój brandbook oraz ścieżkę użytkownika, więc potrafi **złożyć kompletny brief z kontekstem** dla Claude Design. Claude Code oddaje **gotowy, nasycony kontekstem brief**, a nie ogólnik. To ta sama sztuczka, co przy ingeście w rozdziale 08: brief jest świadomy Twojej wiedzy.' },
-      { type: 'p', text: 'Przykładowy pełny brief (instancja demo „Maria Nowak · Lean UX") pokazuje, jak może wyglądać brief zwrócony przez Claude Code: markę i grupę docelową, ton i teksty, dokładną paletę kolorów (HEX) z notą o kontraście WCAG, typografię (Inter), układ sekcji w kolejności ścieżki użytkownika (pasek górny z CTA, hero z propozycją wartości, dowód/case study z metryką „było → jest", proces w 3 krokach, sekcja kontaktu z formularzem, stopka na ciemnym tle) oraz zasady: jedno główne CTA powtórzone w trzech miejscach, etykiety przycisków jako czasownik + konkret, wersje na szeroki ekran i telefon. Potraktuj go jako wzorzec docelowej jakości, a na ścieżce UX wklej go wprost do Claude Design.' },
+      { type: 'p', text: '[**1. Poproś Claude Code, żeby napisał brief.**](#blok-12-prompt-1) Claude Code siedzi na Twoim sejfie i zna Twój brandbook oraz ścieżkę użytkownika, więc potrafi **złożyć kompletny brief z kontekstem** dla Claude Design. Claude Code oddaje **gotowy, nasycony kontekstem brief**, a nie ogólnik. To ta sama sztuczka, co przy ingeście w rozdziale 08: brief jest świadomy Twojej wiedzy.' },
+      { type: 'p', text: '[Przykładowy pełny brief](#blok-12-prompt-2) (instancja demo „Maria Nowak · Lean UX") pokazuje, jak może wyglądać brief zwrócony przez Claude Code: markę i grupę docelową, ton i teksty, dokładną paletę kolorów (HEX) z notą o kontraście WCAG, typografię (Inter), układ sekcji w kolejności ścieżki użytkownika (pasek górny z CTA, hero z propozycją wartości, dowód/case study z metryką „było → jest", proces w 3 krokach, sekcja kontaktu z formularzem, stopka na ciemnym tle) oraz zasady: jedno główne CTA powtórzone w trzech miejscach, etykiety przycisków jako czasownik + konkret, wersje na szeroki ekran i telefon. Potraktuj go jako wzorzec docelowej jakości, a na ścieżce UX wklej go wprost do Claude Design.' },
       { type: 'p', text: '**2. Wygeneruj makietę w Claude Design.** Otwórz Claude Design (pozycja „Design" w Claude Desktop), wybierz szablon **Prototype** i wklej brief przygotowany przez Claude Code. Obejrzyj podgląd i **dopracuj wygląd**: to jest moment, w którym zatwierdzasz stronę, więc proś o poprawki w tej samej rozmowie, aż makieta wygląda jak strona, którą chcesz opublikować.' },
       { type: 'callout', kind: 'info', title: 'Gdzie jest Claude Design', text: '**Claude Design** (na razie w wersji **Beta**) to część **aplikacji Claude Desktop**: otwierasz ją pozycją **„Design"** na dole lewego panelu (obok zakładek Chat / Cowork / Code). Powita Cię pytanie „What will you design today?" oraz gotowe szablony: **Prototype, Slides, Document, Wireframe, Animation**. Dla makiety wysokiej wierności najlepszy jest **Prototype** (Wireframe daje układ niższej wierności). Można wybrać model i wyeksportować kod strony (ikona `</>`).' },
       { type: 'callout', kind: 'info', title: 'Wzmianka: Figma MCP', text: '**Figma** to profesjonalne narzędzie do projektowania interfejsów. Istnieje **Figma MCP**, czyli most (jak ten do NotebookLM z rozdziału 10), który pozwala Claude sięgać do projektów w Figmie: pobierać z nich układy albo tworzyć nowe. Dziś tego **nie robimy**, bo na jednodniową stronę wystarcza Claude Design. Wspominamy o tym, żebyś wiedział, że taka droga istnieje, gdy zechcesz pracować z projektantem w Figmie.' },
       { type: 'p', text: '**3. Zapisz makietę jako plik.** Wyeksportuj wynik do **HTML** (ikona `</>`) i/lub zapisz **PNG** (zrzut/eksport podglądu). HTML niesie realny układ i style (przyda się przy budowie), PNG niesie obraz zatwierdzonego wyglądu. Dobrze mieć oba.' },
-      { type: 'p', text: '**4. Wgraj do sejfu i zaingestuj jako zatwierdzony wygląd.** Skopiuj plik(i) do folderu `Źródła/` w sejfie, a potem zleć ingest w Claude Code.' },
+      { type: 'p', text: '[**4. Wgraj do sejfu i zaingestuj jako zatwierdzony wygląd.**](#blok-12-prompt-3) Skopiuj plik(i) do folderu `Źródła/` w sejfie, a potem zleć ingest w Claude Code.' },
       { type: 'callout', kind: 'warning', title: 'Plan awaryjny (nie zatrzymuj się)', text: 'Jeśli podgląd nie chce się wygenerować, **nie blokuj się**. Poproś Claude Code, żeby zamiast promptu do Claude Design **opisał makietę słowami** (sekcje po kolei, co w każdej, kolory i CTA z brandbooka), zapisał to do `Źródła/` i zaingestował jako wzorzec. Do budowy strony w rozdziale 14 wystarczy **precyzyjny opis wyglądu**; wygenerowany podgląd jest lepszy, ale nie jest warunkiem.' },
       { type: 'callout', kind: 'tip', title: 'To jest moment zatwierdzenia wyglądu', text: 'Nie traktuj tego kroku po macoszemu. Makieta, którą tu zatwierdzisz, jest **punktem odniesienia dla całej budowy strony**. Warto poświęcić chwilę na iteracje (kolory, nagłówki, rozmieszczenie CTA), bo każda decyzja podjęta teraz oszczędza poprawek później. Zmiana wyglądu po zbudowaniu strony kosztuje znacznie więcej niż poprawka makiety.' },
       { type: 'heading', text: '📋 Do użycia' },
@@ -930,19 +940,19 @@ co powstało.`
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Trzy kroki, a na koniec bloku przerwa: założysz katalog DEV, opiszesz agentów w sejfie i zbudujesz ich w Claude Code, po czym odpoczniesz przed budową strony.' },
       { type: 'p', text: '**1. Załóż katalog DEV, a prompt inicjujący wygeneruj w sejfie.** Najpierw utwórz nowy, pusty folder na stronę, **osobny od sejfu** (na przykład na pulpicie folder `landing-dev`).' },
-      { type: 'p', text: 'Teraz najważniejsza zmiana wzorca: polecenia inicjującego **nie piszesz ręcznie w katalogu DEV, tylko generujesz je w sejfie**. Wróć do Claude Code otwartego na **sejfie**, bo to on zna Twój brandbook i persony oraz swoją własną ścieżkę na dysku. Poproś go o gotowy prompt inicjujący katalog DEV.' },
+      { type: 'p', text: 'Teraz najważniejsza zmiana wzorca: polecenia inicjującego **nie piszesz ręcznie w katalogu DEV, tylko generujesz je w sejfie**. Wróć do Claude Code otwartego na **sejfie**, bo to on zna Twój brandbook i persony oraz swoją własną ścieżkę na dysku. Poproś go o gotowy [prompt inicjujący katalog DEV](#blok-13-prompt-1).' },
       { type: 'p', text: 'Dostajesz **gotowy prompt inicjujący**, w który sejf sam wpisał Twój podmiot i CTA oraz **poprawną ścieżkę sejfu** (tę samą na Windows i macOS, bez ręcznego przepisywania). Skopiuj go.' },
       { type: 'p', text: '**Teraz go wykonaj.** Utwórz nową sesję w Claude Code i wskaż pusty folder `landing-dev` (tak jak w rozdziale 06 wskazałeś sejf), wklej skopiowany prompt i wyślij. Claude Code utworzy README oraz pustą strukturę na kod, a na końcu poda dokładną ścieżkę katalogu DEV.' },
       { type: 'callout', kind: 'info', title: 'Po co w prompcie jest ścieżka sejfu', text: 'Konkrety (podmiot, CTA) są wpisane w prompt na twardo, więc katalog DEV jest **samowystarczalny**. Ścieżkę sejfu dokładasz jako **źródło tylko do odczytu**, żeby agenci mogli w razie potrzeby sięgnąć po szczegół z Twojej bazy wiedzy, ale niczego w niej nie zmieniają ani jej nie kopiują. Kod zostaje w DEV, wiedza zostaje w sejfie.' },
       { type: 'callout', kind: 'info', title: 'Dlaczego osobny katalog', text: 'Kod i wiedza rządzą się różnymi prawami: kod się kompiluje, wersjonuje i wdraża, a wiedza się łączy i syntetyzuje. Mieszanie ich w jednym folderze zaśmieca graf sejfu i utrudnia publikację. Dlatego strona żyje w DEV, a sejf zostaje czysty. To domknięcie uwagi z rozdziału 06.' },
-      { type: 'p', text: '**2. Wygeneruj w sejfie opis dwóch agentów (z ich skillami).** Zostań w Claude Code na **sejfie**. Ma on już Twój brandbook (z rozdziału 11), zatwierdzoną makietę (z rozdziału 12) i persony, więc opis agentów zbuduje z Twojej wiedzy, a nie z niczego.' },
+      { type: 'p', text: '[**2. Wygeneruj w sejfie opis dwóch agentów (z ich skillami).**](#blok-13-prompt-2) Zostań w Claude Code na **sejfie**. Ma on już Twój brandbook (z rozdziału 11), zatwierdzoną makietę (z rozdziału 12) i persony, więc opis agentów zbuduje z Twojej wiedzy, a nie z niczego.' },
       { type: 'p', text: 'Dostajesz **notatkę z opisem obu agentów**, dopasowaną do Twojego tematu, wraz z listą potrzebnych skilli. To ona zasili krok 3.' },
       { type: 'ul', items: [
         '**Webmaster** buduje stronę: odwzorowuje makietę 1:1 jako czysty, responsywny HTML i CSS, zgodny z brandbookiem.',
         '**Recenzent UX** sprawdza stronę przed publikacją: czy prowadzi persony do CTA, czy zgadza się ze ścieżką, czy spełnia minimum dostępności (WCAG), i zgłasza konkretne poprawki.'
       ]},
       { type: 'callout', kind: 'tip', title: 'Dlaczego dwaj, a nie jeden', text: 'Rozdzielasz **budowanie** od **sprawdzania**. Autor łatwo nie widzi własnych błędów; recenzent patrzy krytycznie, oczami odbiorcy. To ta sama zasada, co adwokat diabła w radzie doradczej z rozdziału 02.' },
-      { type: 'p', text: '**3. Wygeneruj w sejfie prompt budujący agentów, a wykonaj go w DEV.** Tak samo jak przy zakładaniu katalogu, polecenia **nie sklejasz ręcznie w DEV**. Wróć do Claude Code na **sejfie**, bo to on ma opis agentów z kroku 2. Poproś, żeby zapisał go w jednym, samowystarczalnym poleceniu.' },
+      { type: 'p', text: '[**3. Wygeneruj w sejfie prompt budujący agentów, a wykonaj go w DEV.**](#blok-13-prompt-3) Tak samo jak przy zakładaniu katalogu, polecenia **nie sklejasz ręcznie w DEV**. Wróć do Claude Code na **sejfie**, bo to on ma opis agentów z kroku 2. Poproś, żeby zapisał go w jednym, samowystarczalnym poleceniu.' },
       { type: 'p', text: 'Skopiuj wygenerowany prompt, przełącz się na Claude Code otwarty na **katalogu DEV** i wklej go. Claude Code tworzy pliki agentów i skilli, a na końcu pokazuje **raport**. Zespół jest gotowy; stronę zbudujesz nim w następnym rozdziale.' },
       { type: 'callout', kind: 'info', title: 'Reużyj, zanim zbudujesz, ale sprawdź, zanim zaufasz', text: 'Zanim Claude Code napisze skille od zera, warto sprawdzić, co można wziąć gotowe. Menedżer otwierasz poleceniem `/plugin` (zakładka Discover): masz tam **oficjalny katalog Anthropic** (`claude-plugins-official`) oraz **katalog społecznościowy** (`claude-plugins-community`, ze wstępnym prześwietleniem bezpieczeństwa). Wtyczka może nieść nie tylko skille, ale i gotowych **agentów**. **Zasada bezpieczeństwa:** cudza wtyczka działa z Twoimi uprawnieniami i nie jest odizolowana w piaskownicy. Dlatego trzymaj się dwóch oficjalnych katalogów, przejrzyj listę „co zostanie zainstalowane" przed włączeniem, instaluj najpierw lokalnie (tylko ten projekt) i **nie włączaj trybu pomijania uprawnień** (wyłączamy go w rozdziale 04 właśnie po to). Krótko: reużywaj z oficjalnych źródeł, resztę wygeneruj sam, a cokolwiek z niepewnego źródła zostaw do świadomej decyzji.' },
       { type: 'callout', kind: 'note', title: '☕ Przerwa 2 (14:15–14:30)', text: 'Dobry moment na oddech: **zespół agentów jest gotowy** (opisany i zbudowany). Po przerwie w rozdziale 14 spuszczasz ich ze smyczy i budujesz stronę.' },
@@ -1020,12 +1030,12 @@ Podaj gotowy prompt do skopiowania.`
       { type: 'p', text: 'To jest moment, do którego zmierzał cały dzień. Wszystko, co zbudowałeś, **zbiega się w jednej budowie**: brandbook (jak marka wygląda i mówi), zatwierdzona makieta (wzór wyglądu), persony i ścieżka użytkownika (dla kogo i którędy) oraz dwaj agenci (kto buduje, kto sprawdza). Najpierw Claude Code **napisze z Twojego Second Brain jeden brief** (prompt finalny), a potem Twoi agenci **zbudują z niego prawdziwą stronę** w katalogu DEV, zaciągając treść merytoryczną z NotebookLM przez MCP. Pierwszy raz zobaczysz, jak Twoja wiedza staje się **działającym produktem**.' },
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Jeden ciąg: sejf pisze brief, agenci budują, recenzent sprawdza, wynik wraca do sejfu.' },
-      { type: 'p', text: '**1. Poproś Claude Code, żeby napisał prompt finalny (w sejfie).** Wróć do Claude Code otwartego na **sejfie**. To on zna Twój brandbook, makietę, persony i ścieżkę, więc złoży z nich jeden kompletny brief. Dostajesz **prompt finalny** (samowystarczalny brief) i od razu masz go zapisanego w wiki jako udokumentowaną decyzję.' },
-      { type: 'p', text: '**2. Otwórz katalog DEV.** Prompt finalny masz już w schowku (z kroku 1) i zawiera ścieżkę Twojego sejfu jako źródło tylko do odczytu, więc webmaster odczyta makietę wprost z sejfu. Jeśli wolisz mieć wzór pod ręką w DEV albo dostęp do ścieżki sejfu okaże się niewygodny, **skopiuj plik makiety (HTML)** z sejfu do katalogu DEV jako plan awaryjny.' },
-      { type: 'p', text: '**3. Uruchom budowę w Claude Code (katalog DEV).** Przełącz się na sesję Claude Code otwartą na **katalogu DEV** i wklej **prompt finalny**. Webmaster odwzorowuje makietę jako prawdziwą stronę wg brandbooka i **zaciąga treść merytoryczną z NotebookLM przez MCP**, a recenzent UX sprawdza wynik i zgłasza poprawki. Na końcu dostajesz **raport**: co powstało i co recenzent zalecił.' },
+      { type: 'p', text: '[**1. Poproś Claude Code, żeby napisał prompt finalny (w sejfie).**](#blok-14-prompt-1) Wróć do Claude Code otwartego na **sejfie**. To on zna Twój brandbook, makietę, persony i ścieżkę, więc złoży z nich jeden kompletny brief. Dostajesz **prompt finalny** (samowystarczalny brief) i od razu masz go zapisanego w wiki jako udokumentowaną decyzję.' },
+      { type: 'p', text: '**2. Otwórz katalog DEV.** [Prompt finalny](#blok-14-prompt-1) masz już w schowku (z kroku 1) i zawiera ścieżkę Twojego sejfu jako źródło tylko do odczytu, więc webmaster odczyta makietę wprost z sejfu. Jeśli wolisz mieć wzór pod ręką w DEV albo dostęp do ścieżki sejfu okaże się niewygodny, **skopiuj plik makiety (HTML)** z sejfu do katalogu DEV jako plan awaryjny.' },
+      { type: 'p', text: '**3. Uruchom budowę w Claude Code (katalog DEV).** Przełącz się na sesję Claude Code otwartą na **katalogu DEV** i wklej [**prompt finalny**](#blok-14-prompt-1). Webmaster odwzorowuje makietę jako prawdziwą stronę wg brandbooka i **zaciąga treść merytoryczną z NotebookLM przez MCP**, a recenzent UX sprawdza wynik i zgłasza poprawki. Na końcu dostajesz **raport**: co powstało i co recenzent zalecił.' },
       { type: 'callout', kind: 'info', title: 'NotebookLM realnie pracuje na treść', text: 'Tu spłaca się most z rozdziału 10 po raz drugi i mocniej: sekcje merytoryczne strony (na przykład „o podejściu" czy opis projektu) **nie są zmyślone**, tylko oparte na Twoim notatniku. Wiedza z NotebookLM wchodzi wprost do produktu.' },
       { type: 'p', text: '**4. Popraw stronę wg recenzji UX.** Jeśli recenzent UX zgłosił poprawki (kontrast, kolejność, jasność CTA), poproś webmastera, żeby je wprowadził. To krótka pętla **zbuduj → sprawdź → popraw**, dokładnie po to rozdzieliłeś role w rozdziale 13.' },
-      { type: 'p', text: '**5. Zaingestuj wynik do sejfu.** Na koniec udokumentuj, co powstało, w Second Brain.' },
+      { type: 'p', text: '[**5. Zaingestuj wynik do sejfu.**](#blok-14-prompt-2) Na koniec udokumentuj, co powstało, w Second Brain.' },
       { type: 'callout', kind: 'warning', title: 'Plan awaryjny (nie zatrzymuj się)', text: 'Jeśli budowa się zacina albo NotebookLM nie odpowiada, **zbuduj najpierw stronę z samej makiety i brandbooka**, a treść merytoryczną wstaw jako miejsce zastępcze (i uzupełnij z NotebookLM po warsztacie). Cel bloku to **działająca strona**, gotowa do publikacji; dopieszczanie treści może poczekać.' },
       { type: 'heading', text: '📋 Do użycia' },
       { type: 'p', text: 'Twoi agenci (webmaster, recenzent UX) powstali w rozdziale 13; wzorzec: Opis 2 agentów. Zatwierdzona makieta (wzór 1:1) powstała w rozdziale 12. Brandbook, persony i ścieżka: Demo projektu landing page (UX).' },
@@ -1114,7 +1124,7 @@ brandbookiem i zatwierdzoną makietą. Zaktualizuj Indeks.md i Dziennik.md.`
       { type: 'ul', items: [
         '**„Kończę pracę".** Każdą sesję domykaj SESSION-CLOSE: to, co ustalone, przenieś z ulotnej rozmowy do trwałej pamięci Second Brain. Ten nawyk pojawił się już przed lunchem w rozdziale 10. Dzięki temu następnym razem zaczynasz od miejsca, w którym praca się urwała, a nie od zera.',
         '**Raport i ingest.** Nowa wiedza nie ląduje luzem, tylko wraca do sejfu jako **strona połączona odnośnikami** z resztą. Tak z notatek robi się sieć, a nie sterta plików. To była każda operacja „ingest" tego dnia.',
-        '**Myślenie oddzielone od wykonania.** Plan powstaje w Second Brain (Obsidian), a wykonanie w osobnym miejscu (katalog DEV). Tak zbudowaliśmy stronę w rozdziałach 13–14: sejf napisał brief, agenci go wykonali.'
+        '**Wiedza oddzielona od kodu.** Wiedza mieszka w Second Brain (Obsidian), a kod strony powstaje w osobnym katalogu (DEV). Tak zbudowaliśmy stronę w rozdziałach 13–14: sejf napisał brief, agenci go wykonali.'
       ]},
       { type: 'p', text: 'Aby Second Brain żył, karm go dalej: co jakiś czas **ingest** nowego materiału (artykuł, notatka, transkrypcja) i domknięcie sesji. Kilka minut co jakiś czas wystarczy, żeby wiedza rosła jako połączona całość zamiast się rozsypywać.' },
       { type: 'callout', kind: 'success', title: 'Sprawdź, że dzień się domknął', text: 'Masz **żywą stronę pod adresem** (dowód) oraz **działający Second Brain** na własnym dysku: schemat `CLAUDE.md`, sejf z grafem wiedzy, podłączony NotebookLM i trzy nawyki, które go utrzymują. To jest komplet, który zabierasz z warsztatu.' },
@@ -1129,7 +1139,7 @@ brandbookiem i zatwierdzoną makietą. Zaktualizuj Indeks.md i Dziennik.md.`
     ],
     checkpoints: [
       'Rozumiesz, że dowodem jest strona, a nagrodą metoda i Second Brain.',
-      'Potrafisz nazwać trzy nawyki do domu: „kończę pracę”, raport i ingest, myślenie oddzielone od wykonania.',
+      'Potrafisz nazwać trzy nawyki do domu: „kończę pracę”, raport i ingest, wiedza oddzielona od kodu.',
       'Wiesz, jak utrzymać Second Brain przy życiu: regularny ingest i domknięcie sesji.'
     ],
     prompts: []
@@ -1156,7 +1166,17 @@ function renderInline(text) {
     if (match[1] !== undefined) {
       nodes.push(h('strong', null, match[1]));
     } else {
-      nodes.push(h('a', { href: match[3], target: '_blank', rel: 'noopener noreferrer' }, match[2]));
+      /* Tekst linku może zawierać zagnieżdżone **pogrubienie**
+         (np. `[**pierwsza decyzja**](#kotwica)`), więc parsujemy go
+         rekurencyjnie zamiast wstawiać jako zwykły tekst. Kotwice
+         wewnątrz strony (zaczynające się od `#`) otwieramy w tej samej
+         karcie; adresy zewnętrzne — jak dotąd, w nowej karcie. */
+      const url = match[3];
+      const isInternalAnchor = url.startsWith('#');
+      const linkAttrs = isInternalAnchor
+        ? { href: url }
+        : { href: url, target: '_blank', rel: 'noopener noreferrer' };
+      nodes.push(h('a', linkAttrs, ...renderInline(match[2])));
     }
     lastIndex = pattern.lastIndex;
   }
@@ -1177,7 +1197,7 @@ const CALLOUT_EMOJI = {
 function renderContentNode(node) {
   switch (node.type) {
     case 'heading':
-      return h('h3', { class: 'block-detail__section-heading' }, node.text);
+      return h('h3', { class: 'block-detail__section-heading' }, ...renderInline(node.text));
     case 'p':
       return h('p', { class: 'block-detail__p' }, ...renderInline(node.text));
     case 'ul':
