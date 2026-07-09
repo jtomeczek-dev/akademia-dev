@@ -5,6 +5,29 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.4.0] - 2026-07-09
+
+### Added
+- Nowy, bezpieczny (bez `innerHTML`) renderer ustrukturyzowanej treści bloku
+  w `app.js`: `renderInline()` (parsuje `**pogrubienia**` na DOM-node'y),
+  `renderContentNode()` (nagłówki sekcji, akapity, listy punktowane i
+  numerowane, ramki-callouty `info`/`tip`/`warning`/`success`/`note`, cytaty).
+  Odpowiadające style w `style.css`: `.block-detail__section-heading`,
+  `.block-detail__p`, `.callout`, `.callout__title`, `.callout__text`,
+  `.callout-quote`.
+
+### Changed
+- Pole `desc` (płaski, jednoakapitowy opis) zastąpione w KAŻDYM z 17 bloków
+  polem `content`: uporządkowaną tablicą węzłów treści wiernie odtwarzającą
+  bogatą strukturę odpowiadających rozdziałów podręcznika (`podrecznik/00-*.md`
+  … `16-*.md`) — nagłówki sekcji („🎯 Ważne", „🛠️ Co robimy" itd.), listy,
+  ramki-callouty (`> [!warning]`, `> [!tip]`, `> [!info]`, `> [!success]`,
+  `> [!note]`, w tym `[!abstract]` odwzorowane jako `info`) oraz zwykłe
+  cytaty. `renderBlockDetail` renderuje teraz `content` zamiast płaskiego
+  `desc`. Wewnętrzne linki do sejfu Obsidiana zamienione na czysty tekst.
+  Pola `checkpoints` i `prompts` — już raz zweryfikowane co do wierności
+  źródłu — pozostają bez zmian, co do znaku.
+
 ## [1.3.0] - 2026-07-09
 
 ### Changed
