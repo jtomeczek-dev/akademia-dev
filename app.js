@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.10.1';
+const APP_VERSION = '1.10.2';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -1191,7 +1191,7 @@ Podaj gotowy prompt do skopiowania.`
     mode: 'ćwiczenie → powtarzaj za mną (robimy razem)',
     content: [
       { type: 'heading', text: '🎯 Ważne' },
-      { type: 'p', text: 'To jest moment, do którego zmierzał cały dzień. Wszystko, co zbudowałeś, **zbiega się w jednej budowie**: brandbook (jak marka wygląda i mówi), zatwierdzona makieta (wzór wyglądu), persony i ścieżka użytkownika (dla kogo i którędy) oraz dwaj agenci (kto buduje, kto sprawdza). Najpierw Claude Code **napisze z Twojego Second Brain jeden brief** (prompt finalny), a potem Twoi agenci **zbudują z niego prawdziwą stronę** w katalogu DEV, zaciągając treść merytoryczną z NotebookLM przez MCP. Pierwszy raz zobaczysz, jak Twoja wiedza staje się **działającym produktem**.' },
+      { type: 'p', text: 'To jest moment, do którego zmierzał cały dzień. Wszystko, co zbudowałeś, **zbiega się w jednym miejscu**: brandbook (jak marka wygląda i mówi), zatwierdzona makieta (wzór wyglądu), persony i ścieżka użytkownika (dla kogo i którędy) oraz dwaj agenci (kto buduje, kto sprawdza). Najpierw Claude Code **napisze z Twojego Second Brain jeden brief** (prompt finalny), a potem Twoi agenci **zbudują z niego prawdziwą stronę** w katalogu DEV, zaciągając treść merytoryczną z NotebookLM przez MCP. Pierwszy raz zobaczysz, jak Twoja wiedza staje się **działającym produktem**.' },
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Jeden ciąg: sejf pisze brief, agenci budują, recenzent sprawdza, wynik wraca do sejfu.' },
       { type: 'p', text: '[**1. Poproś Claude Code, żeby napisał prompt finalny (w sejfie).**](#blok-14-prompt-1) Wróć do Claude Code otwartego na **sejfie**. To on zna Twój brandbook, makietę, persony i ścieżkę, więc złoży z nich jeden kompletny brief. Dostajesz **prompt finalny** (samowystarczalny brief) i od razu masz go zapisanego w wiki jako udokumentowaną decyzję.' },

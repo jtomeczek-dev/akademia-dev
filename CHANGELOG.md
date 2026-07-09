@@ -5,6 +5,13 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.10.2] - 2026-07-09
+
+### Changed
+- Blok 14: „zbiega się w jednej budowie" → „zbiega się w jednym miejscu"
+  (naturalniejsze sformułowanie). Ta sama poprawka wprowadzona źródłowo
+  w sejfie Obsidian.
+
 ## [1.10.1] - 2026-07-09
 
 ### Changed
