@@ -2,6 +2,7 @@
 :root {
   --granat: #1B3A6B;
   --zielen: #2E9E5B;
+  --zielen-cta: #1E7A45;
   --granat-gleboki: #16294B;
   --szary-jasny: #F2F5F9;
   --grafit: #1A2230;
@@ -79,12 +80,12 @@ input:focus-visible,
 .btn:hover { filter: brightness(1.08); }
 .btn:active { transform: translateY(1px); }
 .btn--cta {
-  background: var(--zielen);
+  background: var(--zielen-cta);
   color: var(--biel);
   white-space: nowrap;
 }
 .btn--copy {
-  background: var(--zielen);
+  background: var(--zielen-cta);
   color: var(--biel);
   font-size: 0.85rem;
   min-height: 40px;
@@ -206,9 +207,9 @@ main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
   padding: 0.7rem 0.85rem;
 }
 .block-item__checkbox {
-  margin-top: 0.3rem;
-  width: 18px;
-  height: 18px;
+  margin-top: 0.2rem;
+  width: 24px;
+  height: 24px;
   accent-color: var(--zielen);
   flex-shrink: 0;
   cursor: pointer;
@@ -227,7 +228,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
 .block-item__num {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--zielen);
+  color: var(--granat);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -246,7 +247,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
 .block-item__meta .block-item__time { font-family: var(--font-mono); }
 .block-item__current-tag {
   display: inline-block;
-  background: var(--zielen);
+  background: var(--zielen-cta);
   color: var(--biel);
   font-size: 0.68rem;
   font-weight: 700;
@@ -267,7 +268,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
 .block-detail__eyebrow {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--zielen);
+  color: var(--granat);
   font-weight: 700;
 }
 .block-detail__title {
@@ -348,6 +349,19 @@ main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
   font-style: italic;
 }
 
+/* ---------- Wizualnie ukryte, ale dostępne dla czytników ekranu ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- Sekcja kontaktowa ---------- */
 .contact-section {
   background: var(--szary-jasny);
@@ -392,7 +406,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
 }
 .site-footer__version {
   font-size: 0.75rem;
-  color: #64748B;
+  color: #8FA0BE;
   margin: 0.5em 0 0;
 }
 

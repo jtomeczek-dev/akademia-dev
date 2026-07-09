@@ -5,6 +5,55 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.2.0] - 2026-07-09
+
+### Added
+- Oba logo w nagłówku (JT CONSULTING i AI for Everyone) linkują teraz do
+  https://aiforeveryone.blog, otwierane w nowej karcie (`target="_blank"`,
+  `rel="noopener noreferrer"`), z opisowym `aria-label` informującym, że link
+  prowadzi na zewnętrzną domenę. Logo JT CONSULTING w stopce pozostaje bez
+  linku (poza zakresem tej zmiany).
+- Nowy prompt w bloku 07 („Szkielet do skopiowania — CLAUDE.md"), dodany jako
+  pierwszy w kolejności — zgodnie z metodą kursu szkielet kopiuje się do
+  `CLAUDE.md` przed poproszeniem Claude Code o dostosowanie go do własnej
+  dziedziny. Biblioteka promptów liczy teraz 19 pozycji.
+- Plik `.dockerignore` w korzeniu projektu — wyklucza z obrazu Docker katalog
+  `.git/` (pełna historia repo wraz z adresem zdalnym), `.claude/`,
+  `README.md` i `CHANGELOG.md`, które wcześniej trafiały do publicznego
+  obrazu przez `COPY . /usr/share/nginx/html`.
+- Ogłaszanie potwierdzenia kopiowania promptu czytnikom ekranu: niewidoczny
+  wizualnie element `role="status"`/`aria-live="polite"` obok przycisku
+  „Kopiuj" (klasa `.sr-only`).
+- Rozróżniający `aria-label` na każdym przycisku „Kopiuj" (np. „Kopiuj
+  prompt: {etykieta}"), aktualizowany też po skopiowaniu.
+- `aria-current="true"` na przycisku aktualnie wybranego bloku w liście
+  programu dnia.
+- `aria-live="polite"` na tekście postępu (`#progress-text`).
+
+### Changed
+- Sekcja kontaktowa: usunięty własny opisowy akapit (dublował się z tekstem
+  wewnątrz formularza HubSpot), nagłówek zmieniony z „Masz pytanie? Napisz do
+  nas" na „Zarejestruj się i zostaw opinię", zgodnie z faktyczną treścią
+  formularza (rejestracja do przyszłej wersji komercyjnej + opinia). Kolor
+  przycisku i font formularza HubSpot pozostają bez zmian (renderują się
+  w cross-origin iframe hsforms.net, poza zasięgiem naszego CSS).
+- Obszar dotykowy checkboxa listy bloków powiększony z 18×18px do 24×24px
+  (minimalny zalecany rozmiar celu dotykowego).
+
+### Fixed
+- Kontrast: nowa zmienna `--zielen-cta` (#1E7A45) zastępuje `--zielen`
+  (#2E9E5B) jako tło pod białym tekstem (przyciski „Skontaktuj się" i
+  „Kopiuj", tag „w toku") — biały tekst na oryginalnej zieleni miał kontrast
+  ok. 3,4:1, poniżej wymaganych WCAG 4,5:1; na nowym odcieniu kontrast wynosi
+  ok. 5,35:1. `--zielen` oryginalna zostaje bez zmian tam, gdzie nie stoi na
+  niej biały tekst (pasek postępu, checkboxy).
+- `.block-item__num` i `.block-detail__eyebrow` (drobny tekst zielony na
+  białym tle) zmienione na `var(--granat)` — brandbook zabrania używania
+  zieleni jako koloru tekstu na bieli, tylko jako tła przycisku.
+- Kontrast `.site-footer__version` na tle `--granat-gleboki`: kolor zmieniony
+  z `#64748B` (ok. 3,0:1) na `#8FA0BE` (ten sam, którego już używa
+  `.site-footer__note`, z kontrastem OK).
+
 ## [1.1.0] - 2026-07-09
 
 ### Fixed

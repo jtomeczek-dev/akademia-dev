@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.2.0';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -235,6 +235,71 @@ Ustalenia zapisz w pamięci projektu.`
       'Skille Obsidiana są zainstalowane i Claude Code je widzi.'
     ],
     prompts: [
+      {
+        label: 'Szkielet do skopiowania — CLAUDE.md',
+        text: `# <NAZWA-SEJFU> — mój drugi mózg (metoda Karpathy'ego)
+
+To jest **schemat** sterujący agentem LLM (Claude Code), który utrzymuje ten sejf.
+Agent czyta ten plik na początku każdej sesji.
+
+## Po co istnieje ten sejf
+Ten sejf to mój **drugi mózg** w dziedzinie: **<TWOJA-DZIEDZINA>**.
+Gromadzę tu wiedzę, łączę ją i syntetyzuję w spójną całość, z której korzystam na co dzień.
+Wiedza jest moja — agent ją porządkuje, łączy i streszcza, ale jej nie zastępuje.
+
+## Architektura: 3 warstwy
+
+1. **\`Źródła/\` — surowe materiały (NIGDY nie edytuj).**
+   Artykuły, PDF-y, transkrypcje, notatki, zrzuty, obrazy. Pliki są niezmienne:
+   agent je *czyta i cytuje*, ale nigdy nie zmienia. Każdy nowy materiał to nowy plik.
+
+2. **\`Wiki/\` — strony utrzymywane przez agenta.**
+   Zsyntetyzowana wiedza w Markdownie, gęsto połączona \`[[łączami]]\`. Podfoldery:
+   - \`Wiki/koncepcje/\` — pojęcia i tematy (to, *co* rozumiem).
+   - \`Wiki/encje/\` — konkretne byty: osoby, organizacje, narzędzia, miejsca.
+   - \`Wiki/analizy/\` — syntezy łączące wiele źródeł (przekrojowe wnioski).
+
+3. **Schemat** — ten plik (\`CLAUDE.md\`).
+
+Pliki śledzące w korzeniu sejfu:
+- **\`Indeks.md\`** — katalog wszystkich stron wiki (mapa zawartości). Aktualizuj przy każdym ingest.
+- **\`Dziennik.md\`** — dziennik dopisywany (append-only). Po każdym ingest dopisz wpis na górze.
+
+## Operacja: INGEST
+Gdy dodaję nowy materiał (plik w \`Źródła/\` lub adres URL):
+1. **Zapisz źródło.** Treść z zewnątrz zapisz jako oczyszczony Markdown do
+   \`Źródła/RRRR-MM-DD-<slug>.md\` z frontmatterem (\`source_url\`, \`content_type\`, \`ingested_at\`).
+2. **Przeczytaj \`Indeks.md\`**, żeby ustalić, których istniejących stron dotyczy materiał.
+3. **Zaktualizuj lub utwórz strony** w \`Wiki/\`:
+   - Dodaj nowe fakty do istniejących stron albo utwórz nowe (koncepcja / encja / analiza).
+   - Każda strona cytuje źródło: \`Źródło: [[Źródła/RRRR-MM-DD-<slug>]]\`.
+   - Linkuj gęsto: wstaw \`[[łącza]]\` do powiązanych stron w obie strony.
+4. **Zaktualizuj \`Indeks.md\`** — dopisz nowe strony.
+5. **Dopisz wpis do \`Dziennik.md\`** (na górze): data, źródło, dotknięte strony, kluczowy wniosek.
+6. **Podsumuj**: ile stron powstało lub się zmieniło i co warto zrobić dalej.
+
+## Operacja: QUERY
+Odpowiadaj **z wiki** (warstwy zsyntetyzowanej), nie skanując za każdym razem \`Źródeł/\`.
+Zaczynaj od \`Indeks.md\` i podążaj \`[[łączami]]\`. Do \`Źródeł/\` sięgaj tylko po dosłowny cytat
+lub weryfikację faktu.
+
+## Operacja: LINT (przegląd porządkowy)
+Na żądanie przejrzyj \`Wiki/\` i zgłoś:
+- **Sieroty** — strony bez żadnych linków przychodzących ani wychodzących.
+- **Martwe linki** — \`[[łącza]]\` do nieistniejących plików.
+- **Luki** — byty wspomniane, ale bez własnej strony.
+- **Sprzeczności** — niespójne fakty między stronami.
+Zaproponuj naprawy; wprowadzaj je dopiero po mojej akceptacji.
+
+## Zasady
+- **Nigdy nie edytuj \`Źródeł/\`** — tylko czytaj i cytuj.
+- **Każda strona wiki** ma frontmatter z \`typ:\` (\`koncepcja\` | \`encja\` | \`analiza\`), \`tagi:\`
+  i co najmniej jednym \`[[łączem]]\`.
+- **Linkuj gęsto i dwukierunkowo** — wiedza ma tworzyć graf, nie luźne notatki.
+- **Wiedza się kumuluje** — dopisuj i łącz, nie zaczynaj strony od zera.
+- **Język** — notatki piszę po <TWÓJ-JĘZYK>, poprawnie i naturalnie.
+- **Sekrety** — nie zapisuj haseł ani kluczy prywatnych w treści.`
+      },
       {
         label: 'Dostosuj schemat CLAUDE.md do mojej dziedziny',
         text: `Przeczytaj plik CLAUDE.md w tym sejfie. To schemat mojego drugiego mózgu
@@ -736,6 +801,7 @@ function renderBlockList() {
         type: 'button',
         class: 'block-item__button',
         'aria-label': `Otwórz szczegóły bloku ${block.id}: ${block.title}`,
+        'aria-current': selectedBlockId === block.id ? 'true' : null,
         onclick: () => selectBlock(block.id, { focus: true })
       },
       ...buttonChildren
@@ -829,8 +895,14 @@ function renderPromptCard(block, prompt, index) {
   const card = h('div', { class: 'prompt-card', id: anchorId });
 
   const label = h('span', { class: 'prompt-card__label' }, prompt.label);
-  const copyBtn = h('button', { type: 'button', class: 'btn btn--copy' }, 'Kopiuj');
   const COPY_LABEL_DEFAULT = 'Kopiuj';
+  const COPY_ARIA_DEFAULT = `Kopiuj prompt: ${prompt.label}`;
+  const copyBtn = h('button', {
+    type: 'button',
+    class: 'btn btn--copy',
+    'aria-label': COPY_ARIA_DEFAULT
+  }, COPY_LABEL_DEFAULT);
+  const copyStatus = h('span', { class: 'sr-only', role: 'status', 'aria-live': 'polite' });
   let resetTimeoutId = null;
 
   copyBtn.addEventListener('click', () => {
@@ -848,9 +920,13 @@ function renderPromptCard(block, prompt, index) {
        zawsze widzi potwierdzenie, niezależnie od wyniku operacji schowka. */
     copyBtn.textContent = 'Skopiowano ✓';
     copyBtn.setAttribute('data-copied', 'true');
+    copyBtn.setAttribute('aria-label', `Skopiowano prompt: ${prompt.label}`);
+    copyStatus.textContent = `Skopiowano prompt do schowka: ${prompt.label}`;
     resetTimeoutId = setTimeout(() => {
       copyBtn.textContent = COPY_LABEL_DEFAULT;
       copyBtn.removeAttribute('data-copied');
+      copyBtn.setAttribute('aria-label', COPY_ARIA_DEFAULT);
+      copyStatus.textContent = '';
       resetTimeoutId = null;
     }, 1500);
     copyToClipboard(prompt.text).catch(() => {
@@ -859,7 +935,7 @@ function renderPromptCard(block, prompt, index) {
     });
   });
 
-  const header = h('div', { class: 'prompt-card__header' }, label, copyBtn);
+  const header = h('div', { class: 'prompt-card__header' }, label, copyBtn, copyStatus);
   const pre = h('pre', { class: 'prompt-card__code' }, h('code', null, prompt.text));
 
   card.appendChild(header);
