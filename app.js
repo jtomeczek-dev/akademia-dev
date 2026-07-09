@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.4.0';
+const APP_VERSION = '1.4.1';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -108,7 +108,7 @@ const BLOCKS = [
         '**Raport i ingest.** Nowa wiedza wraca do sejfu jako **strona bazy wiedzy połączona** z resztą, więc rośnie sieć, a nie sterta luźnych plików.',
         '**Myślenie oddzielone od wykonania.** Plan powstaje w drugim mózgu, a wykonanie w osobnym miejscu, dzięki czemu jedno nie miesza się z drugim.'
       ]},
-      { type: 'callout', kind: 'warning', title: 'Uczciwie: to wymaga dyscypliny', text: 'Ta metoda jest **pracochłonna i wymaga systematyczności** — to jej cecha, nie wada. Drugi mózg działa dokładnie na tyle, na ile go karmisz i domykasz sesje. Dobra wiadomość: dziś przećwiczysz każdy z tych nawyków po kolei, więc wyjdziesz z **gotowym rytmem pracy**, a nie z samą teorią.' },
+      { type: 'callout', kind: 'warning', title: 'Ważne: to wymaga dyscypliny', text: 'Ta metoda jest **pracochłonna i wymaga systematyczności** — to jej cecha, nie wada. Drugi mózg działa dokładnie na tyle, na ile go karmisz i domykasz sesje. Dobra wiadomość: dziś przećwiczysz każdy z tych nawyków po kolei, więc wyjdziesz z **gotowym rytmem pracy**, a nie z samą teorią.' },
       { type: 'heading', text: '📋 Do użycia' },
       { type: 'p', text: 'Wybór tematu dopinasz na podstawie Checklisty uczestnika (sekcja „Przyjdź z jednym pomysłem").' },
       { type: 'heading', text: '💡 Zapamiętaj' },

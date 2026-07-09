@@ -5,6 +5,18 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.4.1] - 2026-07-09
+
+### Changed
+- Przegląd redakcyjny pola `content` we wszystkich 17 blokach w `app.js`:
+  weryfikacja pod kątem naturalności polszczyzny (tekst ma czytać się jako
+  myślany po polsku, nie jako tłumaczenie z angielskiego). Poprawiony tytuł
+  callouta w bloku 01: „Uczciwie: to wymaga dyscypliny" → „Ważne: to wymaga
+  dyscypliny" (poprzednia wersja brzmiała jak kalka z angielskiego
+  „Honestly:"/„To be honest:"). Pozostała treść `content` po przeglądzie nie
+  wymagała zmian. Pola `checkpoints` i `prompts` pozostają bez zmian, co do
+  znaku.
+
 ## [1.4.0] - 2026-07-09
 
 ### Added
