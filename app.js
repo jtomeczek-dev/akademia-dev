@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.10.0';
+const APP_VERSION = '1.10.1';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -1115,7 +1115,7 @@ co powstało.`
         '**Webmaster** buduje stronę: odwzorowuje makietę 1:1 jako czysty, responsywny HTML i CSS, zgodny z brandbookiem.',
         '**Recenzent UX** sprawdza stronę przed publikacją: czy prowadzi persony do CTA, czy zgadza się ze ścieżką, czy spełnia minimum dostępności (WCAG), i zgłasza konkretne poprawki.'
       ]},
-      { type: 'callout', kind: 'tip', title: 'Dlaczego dwaj, a nie jeden', text: 'Rozdzielasz **budowanie** od **sprawdzania**. Autor łatwo nie widzi własnych błędów; recenzent patrzy krytycznie, oczami odbiorcy. To ta sama zasada, co adwokat diabła w radzie doradczej z rozdziału 02.' },
+      { type: 'callout', kind: 'tip', title: 'Dlaczego dwaj, a nie jeden', text: 'Rozdzielasz **budowanie** od **sprawdzania**. Autor często nie widzi własnych błędów - to dotyczy również AI; recenzent patrzy krytycznie, oczami odbiorcy. To ta sama zasada, co adwokat diabła w radzie doradczej z rozdziału 02.' },
       { type: 'p', text: '[**3. Wygeneruj w sejfie prompt budujący agentów, a wykonaj go w DEV.**](#blok-13-prompt-3) Tak samo jak przy zakładaniu katalogu, polecenia **nie sklejasz ręcznie w DEV**. Wróć do Claude Code na **sejfie**, bo to on ma opis agentów z kroku 2. Poproś, żeby zapisał go w jednym, samowystarczalnym poleceniu.' },
       { type: 'p', text: 'Skopiuj wygenerowany prompt, przełącz się na Claude Code otwarty na **katalogu DEV** i wklej go. Claude Code tworzy pliki agentów i skilli, a na końcu pokazuje **raport**. Zespół jest gotowy; stronę zbudujesz nim w następnym rozdziale.' },
       { type: 'callout', kind: 'info', title: 'Reużyj, zanim zbudujesz, ale sprawdź, zanim zaufasz', text: 'Zanim Claude Code napisze skille od zera, warto sprawdzić, co można wziąć gotowe. Menedżer otwierasz poleceniem `/plugin` (zakładka Discover): masz tam **oficjalny katalog Anthropic** (`claude-plugins-official`) oraz **katalog społecznościowy** (`claude-plugins-community`, ze wstępnym prześwietleniem bezpieczeństwa). Wtyczka może nieść nie tylko skille, ale i gotowych **agentów**. **Zasada bezpieczeństwa:** cudza wtyczka działa z Twoimi uprawnieniami i nie jest odizolowana w piaskownicy. Dlatego trzymaj się dwóch oficjalnych katalogów, przejrzyj listę „co zostanie zainstalowane" przed włączeniem, instaluj najpierw lokalnie (tylko ten projekt) i **nie włączaj trybu pomijania uprawnień** (wyłączamy go w rozdziale 04 właśnie po to). Krótko: reużywaj z oficjalnych źródeł, resztę wygeneruj sam, a cokolwiek z niepewnego źródła zostaw do świadomej decyzji.' },
