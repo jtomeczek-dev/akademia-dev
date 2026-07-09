@@ -5,6 +5,28 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.6.0] - 2026-07-09
+
+### Changed
+- Ujednolicono terminologię w całej treści `app.js`: fraza „drugi mózg" (w
+  dowolnej odmianie) pojawia się teraz **wyłącznie raz** w całym pliku — jako
+  świadome, jednorazowe wyjaśnienie terminu w bloku 05 („Second Brain
+  (dosłownie: „drugi mózg")"). We wszystkich pozostałych 16 blokach,
+  włącznie z opisami, `checkpoints` i `prompts` do kopiowania, fraza została
+  zastąpiona przez „Second Brain" (nieodmienne, jak przyjęte dla obcojęzycznych
+  nazw własnych). To świadoma decyzja terminologiczna klienta, która w tym
+  jednym wypadku celowo łamie dotychczasową zasadę „checkpointy/prompty
+  dosłownie jak w źródle" — zmieniana jest wyłącznie ta jedna fraza, reszta
+  treści checkpointów i promptów pozostaje bez zmian. Tę samą operację
+  wprowadzono już źródłowo w rozdziałach podręcznika i pliku dystylującym
+  treść w sejfie Obsidian (przez autora, poza zakresem tej zmiany w `app.js`).
+- Blok 01: trzy poprawki tekstu — „To namacalny dowód, że metoda działa, a nie
+  temat sam w sobie" → „To namacalny dowód, że proponowana przeze mnie metoda
+  działa"; „poznaj **kształt całego dnia**" → „poznaj **plan całego dnia**";
+  „więc rośnie sieć, a nie sterta luźnych plików" → „więc rośnie sieć powiązań
+  w bazie wiedzy, a nie sterta luźnych plików". Te same poprawki wprowadzono
+  już źródłowo w rozdziale 01 podręcznika w sejfie Obsidian.
+
 ## [1.5.0] - 2026-07-09
 
 ### Added
