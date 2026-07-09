@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.11.0';
+const APP_VERSION = '1.11.1';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -1322,7 +1322,7 @@ zamiast to commitować.`
       { type: 'heading', text: '💬 Q&A' },
       { type: 'p', text: 'Pytania, wątpliwości, pomysły na własne zastosowania. Najlepszy moment, żeby zapytać o rzecz, którą chcesz zrobić u siebie, a nie wiesz jeszcze jak.' },
       { type: 'heading', text: '🎓 Na koniec' },
-      { type: 'p', text: 'Dziękujemy za wspólny dzień. Wychodzisz z **żywą stroną** i **Second Brain**, który dopiero zaczyna pracować. Powodzenia w budowaniu dalej.' }
+      { type: 'p', text: 'Dziękuję za wspólny dzień. Wychodzisz z **żywą stroną** i **Second Brain**, który dopiero zaczyna pracować. Powodzenia w budowaniu dalej.' }
     ],
     checkpoints: [
       'Rozumiesz, że dowodem jest strona, a nagrodą metoda i Second Brain.',
