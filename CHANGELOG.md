@@ -5,6 +5,13 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.8.5] - 2026-07-09
+
+### Added
+- Blok 08: krok 1 sekcji „Co robimy" linkuje teraz do promptu „Przygotuj
+  migrację danych Projektu" (#blok-08-prompt-1) — wcześniej tylko krok 3
+  linkował do swojego promptu (#blok-08-prompt-2).
+
 ## [1.8.4] - 2026-07-09
 
 ### Fixed

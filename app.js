@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.8.4';
+const APP_VERSION = '1.8.5';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -625,7 +625,7 @@ Po instalacji wypisz, jakie skille są teraz dostępne.`
       { type: 'callout', kind: 'info', title: 'Co migrujesz z Projektu', text: 'Twój pierwszy surowiec to **dane Projektu z Claude Chat**, zbudowane rano: **instrukcje Projektu**, **pamięć Projektu (memory)**, dołączone pliki **`skills.md`** i **`persony.md`** oraz **artefakt decyzji o landing page** z rozdziału 02. To już Twoja wiedza, więc Second Brain startuje z realną treścią, a nie z pustką.' },
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Ten blok robimy wspólnie: pokazuję u siebie, a Ty powtarzasz na swoim sejfie.' },
-      { type: 'p', text: '**1. Wyeksportuj dane Projektu z Claude Chat (migracja).** Wróć do swojego **Projektu w Claude Chat** i otwórz w nim **nową rozmowę**. Wklej prompt, żeby Claude przygotował dane Projektu jako pliki `.md` do pobrania. Poczekaj, aż Claude wyświetli wszystkie artefakty `.md`.' },
+      { type: 'p', text: '**1. Wyeksportuj dane Projektu z Claude Chat (migracja).** Wróć do swojego **Projektu w Claude Chat** i otwórz w nim **nową rozmowę**. Wklej [prompt „Przygotuj migrację danych Projektu"](#blok-08-prompt-1), żeby Claude przygotował dane Projektu jako pliki `.md` do pobrania. Poczekaj, aż Claude wyświetli wszystkie artefakty `.md`.' },
       { type: 'p', text: '**2. Zapisz i skopiuj pliki do sejfu.** Pobierz każdy artefakt (pliki trafiają zwykle do folderu **Pobrane** / Downloads), a następnie **skopiuj** je do folderu **`Źródła/`** w swoim sejfie Obsidian. Od tej chwili Twoja poranna praca jest już na dysku, w warstwie surowca.' },
       { type: 'p', text: '**3. Poproś Claude Chat o prompt ingestujący.** Wróć do tej samej rozmowy w Claude Chat (Claude wciąż zna te pliki) i poproś go, żeby przygotował [**gotowy prompt ingestujący dla Claude Code**](#blok-08-prompt-2). Dzięki temu prompt ingestujący jest **świadomy treści** Twoich plików (Claude Chat wie, co w nich jest), a nie ogólny.' },
       { type: 'p', text: '**4. Uruchom ingest w Claude Code.** Skopiuj prompt wygenerowany przez Claude Chat i wklej go w **Claude Code** (otwartym na sejfie). Claude Code przeczyta surowce z `Źródła/`, utworzy pierwsze strony wiki wg `CLAUDE.md` i pokaże podsumowanie: ile stron powstało lub się zmieniło.' },
