@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.8.2';
+const APP_VERSION = '1.8.3';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -514,7 +514,7 @@ Ustalenia zapisz w pamięci projektu.`
       { type: 'heading', text: '📋 Do użycia' },
       { type: 'p', text: 'Gotowiec: [Szkielet CLAUDE.md](#blok-07-prompt-1) (wg Karpathy\'ego) — szkielet do skopiowania + [prompt dostosowujący](#blok-07-prompt-2). Skille Obsidiana: [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills).' },
       { type: 'heading', text: '💡 Zapamiętaj' },
-      { type: 'quote', text: '**`CLAUDE.md` to konstytucja Twojego Second Brain.** Im lepiej opiszesz w nim swoją dziedzinę i zasady, tym trafniej Claude Code porządkuje wiedzę. To dokument żywy: wracasz do niego i dopisujesz zasady, gdy zauważysz, że coś robisz powtarzalnie. Najważniejsze, że ten schemat jest **Twój, przyjęty na własność**, a nie skopiowany z cudzego repozytorium.' },
+      { type: 'quote', text: '**`CLAUDE.md` to konstytucja Twojego Second Brain.** Im lepiej opiszesz w nim swoją dziedzinę i zasady, tym trafniej Claude Code porządkuje wiedzę. To jest żywy dokument: wracasz do niego i dopisujesz zasady, gdy zauważysz, że coś robisz powtarzalnie. Najważniejsze, że ten schemat jest **Twój, przyjęty na własność**, a nie skopiowany z cudzego repozytorium.' },
       { type: 'heading', text: '⏭️ Co dalej' },
       { type: 'p', text: 'Masz już komplet: ciało, ręce, schemat i umiejętności. Twój Second Brain jest pusty, ale gotowy. W następnym rozdziale wrzucasz pierwszy materiał: **migrujesz swoją pracę z Claude Chat** (pliki `.md`) i robisz **pierwszy ingest**, po którym zobaczysz, jak wiedza układa się w graf.' }
     ],

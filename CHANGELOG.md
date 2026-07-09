@@ -5,6 +5,12 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.8.3] - 2026-07-09
+
+### Changed
+- Blok 07: „To dokument żywy:" → „To jest żywy dokument:" (naturalniejszy
+  szyk zdania). Ta sama poprawka wprowadzona źródłowo w sejfie Obsidian.
+
 ## [1.8.2] - 2026-07-09
 
 ### Fixed
