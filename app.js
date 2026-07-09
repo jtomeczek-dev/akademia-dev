@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.8.0';
+const APP_VERSION = '1.8.1';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -472,7 +472,7 @@ Ustalenia zapisz w pamięci projektu.`
       { type: 'heading', text: '💰 Dlaczego lokalnie (znów o tokenach)' },
       { type: 'p', text: 'Pamiętasz z rozdziału 05, że w Projekcie Claude model wczytywał **całą** wiedzę przy każdej odpowiedzi? Claude Code pracuje inaczej: **czyta tylko te pliki, których naprawdę potrzebuje** do zadania, i zmienia je na miejscu. Nie przepisuje całego archiwum do okna czatu. Dlatego praca nawet na dużym sejfie jest tańsza i szybsza, a Twoja wiedza zostaje w plikach, a nie w ulotnej historii rozmowy. To praktyczne dopełnienie modelu Karpathy\'ego.' },
       { type: 'heading', text: '🧠 `CLAUDE.md`, czyli pamięć Claude Code (zapowiedź)' },
-      { type: 'p', text: 'Jedno pojęcie na później: Claude Code czyta na starcie plik **`CLAUDE.md`** z korzenia sejfu. To jego stała instrukcja, odpowiednik instrukcji projektu z rozdziału 02. Dziś jest pusto. W rozdziale 07 nadasz temu plikowi treść wg wzorca Karpathy\'ego i to on powie Claude Code, **jak** ma utrzymywać Twój Second Brain.' },
+      { type: 'p', text: 'Jedno pojęcie na później: Claude Code czyta na starcie plik **`CLAUDE.md`** z korzenia sejfu. To jego stała instrukcja, odpowiednik instrukcji projektu z rozdziału 02. Jeszcze nie mamy takiego pliku w sejfie. W rozdziale 07 nadasz temu plikowi treść wg wzorca Karpathy\'ego i to on powie Claude Code, **jak** ma utrzymywać Twój Second Brain.' },
       { type: 'heading', text: '📋 Do użycia' },
       { type: 'p', text: 'Ustawienia ustawione wcześniej: rozdział 04 · Ustawienia Claude (tryb pomijania uprawnień wyłączony, Preview tools włączone).' },
       { type: 'heading', text: '💡 Zapamiętaj' },
