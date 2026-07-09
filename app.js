@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.4.1';
+const APP_VERSION = '1.4.2';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -57,7 +57,7 @@ const BLOCKS = [
       { type: 'ol', items: [
         '**Laptop** z prawami administratora i wolnym miejscem na dysku.',
         '**Konto Google** do NotebookLM, z działającym logowaniem.',
-        '**Konto Claude z płatną subskrypcją.** Minimum to **Pro** (ok. 18 EUR/mies.), ale zalecam **Max** (ok. 90 EUR/mies.), ponieważ w planie Pro limit użycia może się wyczerpać w trakcie całodniowej pracy, a kurs się nie zatrzyma. Darmowe konto nie wystarczy.',
+        '**Konto Claude z płatną subskrypcją.** Plan **Pro** (ok. 18 EUR/mies.) w zupełności wystarczy — program mieści się w jego limitach, a limit odnawia się co ~5 godzin. Tani bezpiecznik na wszelki wypadek: **Usage credits** w Ustawienia → Usage. Plan **Max** (ok. 90 EUR/mies.) nie jest wymagany — ja jako prowadzący korzystam z niego, żeby pokazy szły płynnie. Darmowe konto nie wystarczy.',
         '**Aplikacja Claude na komputer**, zainstalowana i zalogowana.',
         '**Instalator Obsidian**, pobrany (sejf założymy razem na kursie).',
         '**Rozszerzenie Obsidian Web Clipper**, dodane do przeglądarki (skonfigurujemy je razem na kursie).',

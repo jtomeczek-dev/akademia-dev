@@ -5,6 +5,17 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.4.2] - 2026-07-09
+
+### Fixed
+- Blok 00: pole `content` (lista „Co robimy", pozycja o koncie Claude) zawierało
+  nieaktualną rekomendację planu **Max** — sprzeczną z aktualną checklistą
+  uczestnika, gdzie plan **Pro** został uznany za w pełni wystarczający (Max
+  zarezerwowany dla prowadzącego). Treść na stronie ujednolicona z checklistą.
+  Ta sama poprawka wprowadzona źródłowo w rozdziale 00 podręcznika kursu
+  (plik `podrecznik/00-zanim-zaczniemy.md` w sejfie Obsidian), na wyraźne
+  polecenie autora — jedyny dotąd wyjątek od zasady „sejf tylko do odczytu".
+
 ## [1.4.1] - 2026-07-09
 
 ### Changed
