@@ -5,6 +5,17 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.9.0] - 2026-07-09
+
+### Added
+- Blok 10: dodano brakujący prompt „PROMPT: podłącz MCP do NotebookLM" jako
+  pierwszy w tablicy `prompts` (teraz 2 prompty w tym bloku: prompt-1 to
+  podłączenie MCP, prompt-2 to SESSION-CLOSE, który przesunął się z
+  #blok-10-prompt-1 na #blok-10-prompt-2). Zaktualizowano wszystkie linki do
+  SESSION-CLOSE w treści bloku (nagłówek „Domknięcie sesji" i akapit o
+  SESSION-CLOSE) oraz dodano linki do nowego promptu w kroku 1 sekcji
+  „Co robimy" i w sekcji „Do użycia". Łącznie 20 promptów na stronie.
+
 ## [1.8.5] - 2026-07-09
 
 ### Added

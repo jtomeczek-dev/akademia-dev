@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.8.5';
+const APP_VERSION = '1.9.0';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -723,17 +723,17 @@ Pokaż, co powstało lub się zmieniło.`
       { type: 'p', text: 'Znasz już NotebookLM (rozdział 03) i masz **własny** notatnik dziedzinowy z dodanymi źródłami. Teraz łączysz go z Claude przez **MCP**, żeby Claude sięgał do Twoich notatników **sam**, bez ręcznego kopiowania. To most między „biblioteką" a „mózgiem".' },
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'p', text: 'Po założeniu sejfu i instalacji skilli najtrudniejsze masz już za sobą, więc to podłączenie pójdzie spokojnie. Zamiast robić instalację ręcznie, **zlecasz ją Claude Code** z gotowego promptu. MCP wpisuje się do **aplikacji Claude Desktop** (nie do przeglądarki), a **całą pracę wykonuje za Ciebie Claude Code**. Twój jedyny możliwy ręczny krok to logowanie do Google, i to nie zawsze.' },
-      { type: 'p', text: '**1. Wklej prompt w Claude Code.** Otwórz gotowiec „PROMPT: podłącz MCP do NotebookLM" i wklej go w Claude Code (w aplikacji Claude Desktop). Prompt zleca: instalację serwera NotebookLM, logowanie do Google (`nlm login`) oraz **wpisanie serwera do konfiguracji aplikacji Claude Desktop** z pełną ścieżką.' },
+      { type: 'p', text: '**1. Wklej prompt w Claude Code.** Otwórz gotowiec [„PROMPT: podłącz MCP do NotebookLM"](#blok-10-prompt-1) i wklej go w Claude Code (w aplikacji Claude Desktop). Prompt zleca: instalację serwera NotebookLM, logowanie do Google (`nlm login`) oraz **wpisanie serwera do konfiguracji aplikacji Claude Desktop** z pełną ścieżką.' },
       { type: 'p', text: '**2. Zatwierdzaj; zaloguj się tylko w razie potrzeby.** Claude Code wykonuje **całą** pracę (na warsztacie w trybie auto-zatwierdzania z rozdziału 06). Jeśli potrzebne będzie logowanie do Google, dokończ je w przeglądarce na **właściwym koncie**. Komendę `nlm login` uruchamiasz w terminalu **sam tylko wtedy, gdy Claude Code o to poprosi** (gdy nie mógł jej wywołać, a logowania jeszcze nie ma).' },
       { type: 'p', text: '**3. Zrestartuj aplikację Claude Desktop.** Gdy Claude Code skończy, zrestartuj aplikację, żeby wczytała nowy serwer MCP.' },
       { type: 'p', text: '**4. Przetestuj.** Wpisz „Wylistuj moje notatniki NotebookLM". Jeśli zwraca Twoją listę, most działa.' },
       { type: 'callout', kind: 'note', title: 'Wariant ręczny (fallback)', text: 'Gdyby coś się nie powiodło, tę samą instalację można przeprowadzić **ręcznie** (uv, `nlm login`, wpis w konfiguracji, restart). Pełne, zweryfikowane kroki są w instrukcji MCP. To także materiał dla prowadzącego.' },
-      { type: 'heading', text: '🔒 Domknięcie sesji ([SESSION-CLOSE](#blok-10-prompt-1))' },
-      { type: 'p', text: 'NotebookLM działa, więc **domykasz przedpołudniową sesję**. Robisz to po raz pierwszy: pełny [**SESSION-CLOSE**](#blok-10-prompt-1) to rozwinięta wersja nawyku **„kończę pracę"** z rozdziału 02, teraz uruchomiona w Twoim Second Brain. Poproś o to Claude Code.' },
+      { type: 'heading', text: '🔒 Domknięcie sesji ([SESSION-CLOSE](#blok-10-prompt-2))' },
+      { type: 'p', text: 'NotebookLM działa, więc **domykasz przedpołudniową sesję**. Robisz to po raz pierwszy: pełny [**SESSION-CLOSE**](#blok-10-prompt-2) to rozwinięta wersja nawyku **„kończę pracę"** z rozdziału 02, teraz uruchomiona w Twoim Second Brain. Poproś o to Claude Code.' },
       { type: 'callout', kind: 'info', title: 'Dlaczego robisz to na koniec sesji', text: 'Praca w rozmowie jest **ulotna**: zamkniesz okno i kontekst znika. SESSION-CLOSE przenosi to, co ważne, z ulotnej rozmowy do **trwałej pamięci** Second Brain, żeby następnym razem zacząć od miejsca, w którym praca się urwała, a nie od zera. To ta sama zasada, co nawyk „kończę pracę" z rozdziału 02: **ustalenia zapisujesz, nie zostawiasz ich w historii czatu**. Kolejność jest celowa: najpierw **pamięć** (co się wydarzyło), potem **strategia** (dokąd zmierzam), na końcu **workflow** (jak pracuję), czyli od faktów, przez kierunek, po metodę.' },
       { type: 'callout', kind: 'tip', title: 'Zapisz to jako swój rytuał', text: 'Ten rytuał możesz opisać w swoim `CLAUDE.md` (albo w `skills.md`), żeby następnym razem wywołać go jednym hasłem, na przykład „kończę pracę". Wtedy nie musisz pamiętać całego promptu.' },
       { type: 'heading', text: '📋 Do użycia' },
-      { type: 'p', text: 'Gotowiec (prompt do wklejenia): PROMPT: podłącz MCP do NotebookLM. Instrukcja ręczna (fallback / prowadzący): Instrukcja MCP do NotebookLM.' },
+      { type: 'p', text: 'Gotowiec (prompt do wklejenia): [PROMPT: podłącz MCP do NotebookLM](#blok-10-prompt-1). Instrukcja ręczna (fallback / prowadzący): Instrukcja MCP do NotebookLM.' },
       { type: 'heading', text: '💡 Zapamiętaj' },
       { type: 'quote', text: '**MCP to wtyczki dla Twojego Claude.** Dziś podłączasz NotebookLM, ale ta sama mechanika (serwer, wpis w konfiguracji, restart) otwiera Claude na dziesiątki innych narzędzi. Jeden szczegół zapamiętaj na zawsze: w konfiguracji podajesz **pełną ścieżkę do serwera**, bo aplikacja graficzna nie widzi PATH z terminala.' },
       { type: 'callout', kind: 'tip', title: 'Nie wszystko trzeba stawiać ręcznie', text: 'To był sposób „ręczny" (własny serwer MCP), potrzebny dla narzędzi bez gotowej integracji, jak NotebookLM. Wiele popularnych narzędzi (Slack, Notion, Google Drive, GitHub i inne) ma w aplikacji Claude **gotowe konektory**, które podłączasz **jednym kliknięciem** w Ustawienia → Konektory. Zasada jest ta sama, czyli rozszerzasz Claude o zewnętrzne narzędzia, tylko bez konfiguracji.' },
@@ -747,6 +747,25 @@ Pokaż, co powstało lub się zmieniło.`
       'Wykonano pierwszy SESSION-CLOSE: pamięć Second Brain jest zaktualizowana.'
     ],
     prompts: [
+      {
+        label: 'PROMPT: podłącz MCP do NotebookLM',
+        text: `Podłącz do aplikacji Claude Desktop serwer MCP do NotebookLM i zrób za mnie
+CAŁĄ pracę. Prosząc o zgodę przed komendami:
+1. Zainstaluj menedżer uv (jeśli jeszcze go nie ma).
+2. Zainstaluj serwer: uv tool install notebooklm-mcp-cli
+3. Sprawdź, czy logowanie do NotebookLM jest już aktywne. Jeśli NIE, uruchom
+   nlm login samodzielnie; ja co najwyżej dokończę logowanie w przeglądarce
+   na właściwym koncie Google. Poproś mnie o ręczne uruchomienie nlm login
+   w terminalu TYLKO wtedy, gdy sam nie możesz go wywołać, a logowania
+   jeszcze nie ma.
+4. Ustal PEŁNĄ, absolutną ścieżkę serwera (np. przez: which notebooklm-mcp).
+5. Dopisz serwer notebooklm-mcp do konfiguracji aplikacji Claude Desktop,
+   używając pełnej ścieżki z punktu 4 (aplikacja graficzna nie widzi PATH
+   z terminala, więc sama nazwa nie wystarczy).
+6. Napisz mi wyraźnie, że mam teraz zrestartować aplikację Claude Desktop.
+Poza ewentualnym dokończeniem logowania w przeglądarce nie chcę robić nic
+ręcznie; wykonaj wszystkie kroki i pokaż, co zrobiłeś.`
+      },
       {
         label: 'SESSION-CLOSE (domknięcie sesji pracy nad Second Brain)',
         text: `Domknij tę sesję pracy nad moim Second Brain (SESSION-CLOSE). Wykonaj w tle,
