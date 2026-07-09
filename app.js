@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.8.3';
+const APP_VERSION = '1.8.4';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -271,7 +271,7 @@ Ustalenia zapisz w pamięci projektu.`
       ]},
       { type: 'p', text: 'Notatnik prowadzącego z płatnymi książkami służy **tylko do pokazu z ekranu** i nie jest udostępniany. Następnie **tworzysz własny notatnik** na swoim koncie `@gmail.com` i dodajesz do niego kilka **darmowych źródeł UX** z listy.' },
       { type: 'heading', text: '📋 Do użycia' },
-      { type: 'p', text: 'Lista darmowych źródeł UX do dodania w swoim notatniku: Darmowe źródła UX do własnego notatnika.' },
+      { type: 'p', text: 'Lista darmowych źródeł UX do dodania w swoim notatniku:' },
       { type: 'ul', items: [
         '[https://jeffgothelf.com/blog/how-to-use-the-lean-ux-canvas/](https://jeffgothelf.com/blog/how-to-use-the-lean-ux-canvas/)',
         '[https://jeffgothelf.com/wp-content/uploads/2016/12/LeanUX_canvas_v4.pdf](https://jeffgothelf.com/wp-content/uploads/2016/12/LeanUX_canvas_v4.pdf)',

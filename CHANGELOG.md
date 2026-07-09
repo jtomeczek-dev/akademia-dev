@@ -5,6 +5,15 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.8.4] - 2026-07-09
+
+### Fixed
+- Blok 03: usunięte zbędne powtórzenie w zdaniu „Lista darmowych źródeł UX
+  do dodania w swoim notatniku: Darmowe źródła UX do własnego notatnika."
+  — druga część była osieroconym tekstem linku zgubionego przy transkrypcji
+  treści na stronę. W sejfie ten sam fragment to działający wikilink, więc
+  poprawka dotyczy wyłącznie strony.
+
 ## [1.8.3] - 2026-07-09
 
 ### Changed
