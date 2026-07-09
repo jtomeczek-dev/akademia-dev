@@ -5,6 +5,30 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.8.0] - 2026-07-09
+
+### Added
+- Nowa globalna zasada treści: każdy adres internetowy wspomniany w prozie
+  bloków (`content`) jest teraz klikalnym linkiem zewnętrznym (`https://`,
+  otwierany w nowej karcie), zamiast gołego tekstu. Zlinkowano: blok 05
+  (`obsidian.md/download`), blok 07 (`kepano/obsidian-skills` ×2 — sekcja
+  „Co robimy" i „Do użycia"), blok 09 (`obsidian.md/download`) oraz blok 15
+  (`github.io` ×3, adres przykładowy `jtomeczek-dev.github.io/landing-ux/`,
+  `netlify.com`, `app.netlify.com/drop`). Nazwy plików lokalnych (`skills.md`,
+  `CLAUDE.md`…), adresy e-mail opisowe i placeholder `mojastrona.pl` zostają
+  bez zmian, tak jak treść pól `checkpoints` i `prompts[].text`.
+
+### Changed
+- Blok 03: wzmocniono cytat „Zapamiętaj" o NotebookLM — dodano, że spośród
+  dostępnych darmowych narzędzi AI ma on najmniejszą tendencję do halucynacji.
+- Blok 02: usunięto z treści strony jedyny callout „Dla prowadzącego" (notatka
+  adresowana wyłącznie do prowadzącego, nie do uczestnika).
+- Blok 05: cztery poprawki tekstu („realnym" → „dostępnym"; doprecyzowanie
+  „gęsto połączoną wzajemnymi linkami wiki"; „surowce" → „surowiec - pliki";
+  „przetwarzać surowce" → „przetwarzać wszystkie pliki") oraz przywrócono
+  zgubiony przy transkrypcji link do źródła wzorca (Andrej Karpathy, „LLM
+  Wiki", gist).
+
 ## [1.7.0] - 2026-07-09
 
 ### Added
