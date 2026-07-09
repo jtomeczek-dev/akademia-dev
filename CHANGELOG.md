@@ -5,6 +5,15 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.11.2] - 2026-07-09
+
+### Changed
+- Logo JT CONSULTING w nagłówku prowadzi teraz na główną stronę
+  (https://jtomeczek-dev.github.io/akademia-dev) zamiast na
+  aiforeveryone.blog — otwiera się w tej samej karcie (link wewnętrzny,
+  usunięto `target="_blank"`). Logo AI for Everyone nadal linkuje do
+  aiforeveryone.blog, bez zmian.
+
 ## [1.11.1] - 2026-07-09
 
 ### Fixed
