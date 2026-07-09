@@ -8,7 +8,7 @@
 
 /* Wersja aplikacji (semver) — jedno miejsce do podbicia przy każdej zmianie.
    Wyświetlana w stopce strony i śledzona w CHANGELOG.md. */
-const APP_VERSION = '1.4.2';
+const APP_VERSION = '1.5.0';
 
 /* ---------- Mały bezpieczny helper do budowy DOM (bez innerHTML) ---------- */
 function h(tag, attrs, ...children) {
@@ -65,7 +65,7 @@ const BLOCKS = [
       ]},
       { type: 'callout', kind: 'note', title: 'Co dostajesz ode mnie', text: 'Tę checklistę, link do wspólnego notatnika NotebookLM (jeśli go nie masz, podaj mi na Teams swój adres Gmail) oraz materiały szkoleniowe, które przekażę już podczas kursu.' },
       { type: 'heading', text: '📋 Do użycia' },
-      { type: 'p', text: 'Pełna lista z uzasadnieniami: Checklista uczestnika.' },
+      { type: 'p', text: 'Pełna lista z uzasadnieniami: [Checklista uczestnika](assets/checklista-uczestnika.pdf).' },
       { type: 'heading', text: '💡 Zapamiętaj' },
       { type: 'quote', text: 'Przez cały dzień wszystko opiera się na dwóch osobnych logowaniach: **konto Google** do NotebookLM (Twoja wiedza dziedzinowa) oraz **płatny Claude** do Projektów, MCP, Claude Code i Claude Design (mózg i produkcja). Jeśli coś ma dziś nie zadziałać, to prawie zawsze brakuje jednego z tych dwóch, więc sprawdź oba **dziś**, nie jutro rano. I pamiętaj: to Twoja wiedza jest sednem warsztatu, a narzędzia jedynie pomagają ją uporządkować.' }
     ],
@@ -85,7 +85,7 @@ const BLOCKS = [
     mode: 'wspólnie',
     content: [
       { type: 'heading', text: '🎯 Ważne' },
-      { type: 'p', text: 'Ten warsztat **nie** odpowiada na pytanie „jak korzystać z AI", bo takich kursów są tysiące, za darmo. Uczy czegoś cenniejszego: **jak zarządzać własną wiedzą ze wsparciem AI**. Wiedza jest Twoja, a AI pomaga ją uporządkować, połączyć i zsyntetyzować. Cel nadrzędny dnia to **opublikowana landing page** zbudowana z Twojego drugiego mózgu. To namacalny dowód, że metoda działa, a nie temat sam w sobie.' },
+      { type: 'p', text: 'Ten warsztat **nie** odpowiada na pytanie „jak korzystać z AI", bo takich kursów są tysiące, za darmo. Uczy czegoś cenniejszego: **jak zarządzać własną wiedzą ze wsparciem AI**. Wiedza jest Twoja, a AI pomaga ją uporządkować, połączyć i zsyntetyzować. Cel nadrzędny dnia to **opublikowana landing page** zbudowana na podstawie wiedzy z Twojego drugiego mózgu i NotebookLM. To namacalny dowód, że metoda działa, a nie temat sam w sobie.' },
       { type: 'heading', text: '🛠️ Co robimy' },
       { type: 'ol', items: [
         'Prowadzący przedstawia **ramę dnia**: tempo (guided, czyli prowadzący prowadzi, uczestnicy podążają), rytm „poznaj → zbuduj → opublikuj" oraz rolę przerw i bufora.',
@@ -1140,14 +1140,30 @@ brandbookiem i zatwierdzoną makietą. Zaktualizuj Indeks.md i Dziennik.md.`
    Renderowanie treści bloku (content: nagłówki, akapity, listy, ramki, cytaty)
    ========================================================================== */
 
-/* Parsuje **pogrubienia** w tekście i zwraca tablicę DOM-node'ów (tekst +
-   <strong>), bez użycia innerHTML. */
+/* Parsuje **pogrubienia** oraz [tekst](url) w tekście i zwraca tablicę
+   DOM-node'ów (tekst zwykły + <strong> + <a>), bez użycia innerHTML.
+   Oba wzorce mogą występować razem, w dowolnej kolejności. */
 function renderInline(text) {
-  const parts = String(text).split(/\*\*(.+?)\*\*/g);
-  return parts.map((segment, index) => {
-    if (segment === '') return null;
-    return index % 2 === 1 ? h('strong', null, segment) : document.createTextNode(segment);
-  }).filter((node) => node !== null);
+  const str = String(text);
+  const pattern = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\)/g;
+  const nodes = [];
+  let lastIndex = 0;
+  let match;
+  while ((match = pattern.exec(str)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(document.createTextNode(str.slice(lastIndex, match.index)));
+    }
+    if (match[1] !== undefined) {
+      nodes.push(h('strong', null, match[1]));
+    } else {
+      nodes.push(h('a', { href: match[3], target: '_blank', rel: 'noopener noreferrer' }, match[2]));
+    }
+    lastIndex = pattern.lastIndex;
+  }
+  if (lastIndex < str.length) {
+    nodes.push(document.createTextNode(str.slice(lastIndex)));
+  }
+  return nodes;
 }
 
 const CALLOUT_EMOJI = {

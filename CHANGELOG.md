@@ -5,6 +5,28 @@ Wszystkie znaczące zmiany w tym projekcie są opisywane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/),
 a numeracja wersji zgodna z [Semantic Versioning](https://semver.org/lang/pl/).
 
+## [1.5.0] - 2026-07-09
+
+### Added
+- `renderInline()` w `app.js` obsługuje teraz obok `**pogrubienia**` także
+  składnię linku Markdown `[tekst](url)`, renderowaną bezpiecznie przez
+  `h('a', { href, target: '_blank', rel: 'noopener noreferrer' }, tekst)`
+  (bez `innerHTML`). Oba wzorce mogą występować w tym samym tekście, w
+  dowolnej kolejności. Dodano regułę CSS podkreślającą linki wewnątrz
+  `.block-detail__p`, `.callout__text` i `.callout-quote` dla czytelności
+  (link ma ten sam kolor co reszta tekstu, więc bez podkreślenia byłby
+  trudny do zauważenia).
+- Blok 00, sekcja „Do użycia": podlinkowano „Checklistę uczestnika" do
+  gotowego pliku PDF (`assets/checklista-uczestnika.pdf`), otwieranego w
+  nowej karcie.
+
+### Fixed
+- Blok 01, sekcja „Ważne": zdanie o celu nadrzędnym dnia doprecyzowane —
+  landing page powstaje na podstawie wiedzy z drugiego mózgu **i
+  NotebookLM**, nie tylko z drugiego mózgu. Ta sama poprawka wprowadzona
+  źródłowo w rozdziale 01 podręcznika kursu w sejfie Obsidian (przez
+  autora, poza zakresem tej zmiany w `app.js`).
+
 ## [1.4.2] - 2026-07-09
 
 ### Fixed

@@ -289,6 +289,12 @@ main { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
 .block-detail__section-heading:first-child { margin-top: 0; }
 .block-detail__p { margin: 0 0 1em; }
 
+.block-detail__p a,
+.callout__text a,
+.callout-quote a {
+  text-decoration: underline;
+}
+
 .callout {
   border-left: 4px solid var(--granat);
   background: var(--szary-jasny);
